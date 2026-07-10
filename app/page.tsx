@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { fetchGoogleReviews } from "@/lib/google-reviews";
+import GoogleReviewsSection, { GoogleReviewsFallback } from "@/components/GoogleReviews";
 
 /* ─────────────────────── DATA ─────────────────────── */
 
@@ -32,8 +34,8 @@ const flights = [
     tagColor: "bg-brand-green",
     title: "Ruta El Auqui – Lumbisí",
     desc: "Despega del cerro El Auqui y aterriza en el valle de Lumbisí, Cumbayá.",
-    details: ["20 – 30 min", "Vuelo dinámico", "Fotos incluidas"],
-    image: "/route-auqui.jpg",
+    details: ["10 – 12 min", "Vuelo panorámico", "Fotos y video incluido", "Instalaciones privadas en despegue"],
+    image: "/hero.jpg",
     href: "/vuelos",
   },
   {
@@ -41,8 +43,8 @@ const flights = [
     tagColor: "bg-brand-blue",
     title: "Ruta Teleférico – La Carolina",
     desc: "Despega desde el Teleférico y aterriza en el parque La Carolina.",
-    details: ["30 – 40 min", "Vuelo de altura", "Fotos y video"],
-    image: "/route-teleferico.jpg",
+    details: ["17 – 20 min", "La mejor vista de la ciudad", "Fotos y video incluido"],
+    image: "/hero.jpg",
     href: "/vuelos",
   },
   {
@@ -50,50 +52,33 @@ const flights = [
     tagColor: "bg-rose-500",
     title: "Cásate Conmigo",
     desc: "Propuesta de matrimonio inolvidable desde el aire con letras gigantes.",
-    details: ["Vuelo coordinado", "Letras en tierra", "Foto/Video premium"],
-    image: "/plan-casate.jpg",
+    details: ["Vuelo coordinado", "Letras gigantes en tierra", "Fotos y video premium"],
+    image: "/hero.jpg",
     href: "/vuelos",
   },
   {
-    tag: "PREMIUM",
+    tag: "INOLVIDABLE",
     tagColor: "bg-amber-500",
     title: "Vuelo de Quince Años",
     desc: "Celebra tus 15 años con un vuelo espectacular y sesión de fotos.",
     details: ["Vuelo de celebración", "Banner aéreo", "Sesión de fotos"],
-    image: "/plan-quince.jpg",
+    image: "/hero.jpg",
     href: "/vuelos",
   },
 ];
 
 const galleryImages = [
-  "/gallery-1.jpg",
-  "/gallery-2.jpg",
-  "/gallery-3.jpg",
-  "/gallery-4.jpg",
-  "/gallery-5.jpg",
-];
-
-const testimonials = [
-  {
-    stars: 5,
-    text: "Una experiencia increíble, los pilotos son muy profesionales y te hacen sentir seguro en todo momento.",
-    name: "María González",
-  },
-  {
-    stars: 5,
-    text: "Las vistas son espectaculares y las fotos quedaron brutales. ¡Totalmente recomendado!",
-    name: "Andrés Herrera",
-  },
-  {
-    stars: 5,
-    text: "El mejor regalo que me he hecho. Volvería a hacerlo mil veces más.",
-    name: "Laura Sánchez",
-  },
+  "/hero.jpg",
+  "/hero.jpg",
+  "/hero.jpg",
+  "/hero.jpg",
+  "/hero.jpg",
 ];
 
 /* ─────────────────────── PAGE ─────────────────────── */
 
-export default function Home() {
+export default async function Home() {
+  const reviewsData = await fetchGoogleReviews();
   return (
     <>
       {/* ── HERO ── */}
@@ -219,7 +204,7 @@ export default function Home() {
                   </ul>
                   <div className="mt-auto pt-5">
                     <span className="inline-flex w-full items-center justify-center rounded-xl bg-brand-green/10 px-4 py-2.5 text-sm font-semibold text-brand-green transition group-hover:bg-brand-green group-hover:text-white">
-                      Reservar ahora
+                      Mas información
                     </span>
                   </div>
                 </div>
@@ -249,7 +234,7 @@ export default function Home() {
             >
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src="/extra-banner.jpg"
+                  src="/hero.jpg"
                   alt="Parapente volando con banner aéreo personalizado"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -286,7 +271,7 @@ export default function Home() {
             >
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src="/extra-letras.jpg"
+                  src="/hero.jpg"
                   alt="Letras gigantes en tierra visibles desde el aire"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -362,45 +347,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── TESTIMONIALS ── */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <p className="text-sm font-semibold tracking-wide text-brand-blue uppercase">
-              Lo que dicen nuestros clientes
-            </p>
-            <h2 className="mt-2 text-3xl font-bold text-foreground">
-              Experiencias que hablan por sí solas
-            </h2>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {testimonials.map((t) => (
-              <div
-                key={t.name}
-                className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5"
-              >
-                {/* Stars */}
-                <div className="flex gap-0.5">
-                  {Array.from({ length: t.stars }).map((_, i) => (
-                    <svg key={i} className="h-4 w-4 text-amber-400" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-foreground/70">
-                  &ldquo;{t.text}&rdquo;
-                </p>
-                <div className="mt-5 flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-blue/10 text-sm font-bold text-brand-blue">
-                    {t.name.charAt(0)}
-                  </div>
-                  <span className="text-sm font-medium text-foreground">{t.name}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── GOOGLE REVIEWS ── */}
+      {reviewsData ? (
+        <GoogleReviewsSection
+          reviews={reviewsData.reviews}
+          averageRating={reviewsData.averageRating}
+          totalReviews={reviewsData.totalReviews}
+        />
+      ) : (
+        <GoogleReviewsFallback />
+      )}
 
       {/* ── CTA BANNER ── */}
       <section className="relative overflow-hidden bg-[#0B132B] py-20">

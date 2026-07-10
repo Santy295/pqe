@@ -9,20 +9,20 @@ export const metadata: Metadata = {
 
 const team = [
   {
-    name: "Carlos Mendoza",
-    role: "Piloto Fundador",
-    exp: "+8 años de experiencia",
+    name: "Roberto Navarro",
+    role: "Piloto Fundador y CEO",
+    exp: "+15 años de experiencia",
     desc: "Piloto certificado APPI con más de 2.000 vuelos biplaza realizados sobre los cielos de Quito.",
   },
   {
-    name: "Diego Paredes",
+    name: "Marlon Navarro",
     role: "Piloto Instructor",
-    exp: "+5 años de experiencia",
+    exp: "+15 años de experiencia",
     desc: "Especialista en vuelos tándem y acrobáticos. Certificación USHPA y entrenamiento en competiciones internacionales.",
   },
   {
-    name: "Valentina Ruiz",
-    role: "Coordinadora de Experiencias",
+    name: "Rominita Valentinita",
+    role: "Chica cobros y mi hermana",
     exp: "+3 años en turismo de aventura",
     desc: "Encargada de diseñar cada paquete experiencial, desde propuestas de matrimonio hasta celebraciones de 15 años.",
   },
@@ -42,7 +42,7 @@ const safety = [
   {
     icon: "radio",
     title: "Comunicación en Vuelo",
-    desc: "Cada piloto lleva radio comunicación para coordinación constante con el equipo en tierra.",
+    desc: "Cada piloto lleva radio para coordinación constante con el equipo en tierra.",
   },
   {
     icon: "refresh",
