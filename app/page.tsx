@@ -307,7 +307,7 @@ export default async function Home() {
       </section>
 
       {/* ── GALLERY PREVIEW ── */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-slate-50 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-10 items-center">
             <div className="lg:w-1/3">
@@ -327,7 +327,7 @@ export default async function Home() {
                 Ver galería completa
               </Link>
             </div>
-            <div className="lg:w-2/3 flex gap-3 overflow-x-auto pb-4 snap-x snap-mandatory">
+            <div className="w-full lg:w-2/3 flex flex-nowrap gap-3 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {galleryImages.map((img, i) => (
                 <div
                   key={i}
