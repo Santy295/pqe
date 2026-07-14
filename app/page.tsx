@@ -35,7 +35,7 @@ const flights = [
     title: "Ruta El Auqui – Lumbisí",
     desc: "Despega del cerro El Auqui y aterriza en el valle de Lumbisí, Cumbayá.",
     details: ["10 – 12 min", "Vuelo panorámico", "Fotos y video incluido", "Instalaciones privadas en despegue"],
-    image: "/hero.jpg",
+    image: "/images/route-auqui.jpg",
     href: "/vuelos",
   },
   {
@@ -44,7 +44,7 @@ const flights = [
     title: "Ruta Teleférico – La Carolina",
     desc: "Despega desde el Teleférico y aterriza en el parque La Carolina.",
     details: ["17 – 20 min", "La mejor vista de la ciudad", "Fotos y video incluido"],
-    image: "/hero.jpg",
+    image: "/images/route-teleferico.jpg",
     href: "/vuelos",
   },
   {
@@ -53,7 +53,7 @@ const flights = [
     title: "Cásate Conmigo",
     desc: "Propuesta de matrimonio inolvidable desde el aire con letras gigantes.",
     details: ["Vuelo coordinado", "Letras gigantes en tierra", "Fotos y video premium"],
-    image: "/hero.jpg",
+    image: "/images/plan-casate.jpg",
     href: "/vuelos",
   },
   {
@@ -62,17 +62,17 @@ const flights = [
     title: "Vuelo de Quince Años",
     desc: "Celebra tus 15 años con un vuelo espectacular y sesión de fotos.",
     details: ["Vuelo de celebración", "Banner aéreo", "Sesión de fotos"],
-    image: "/hero.jpg",
+    image: "/images/plan-quince.jpg",
     href: "/vuelos",
   },
 ];
 
 const galleryImages = [
-  "/hero.jpg",
-  "/hero.jpg",
-  "/hero.jpg",
-  "/hero.jpg",
-  "/hero.jpg",
+  "/images/gallery/img16.jpg",
+  "/images/gallery/img13.jpg",
+  "/images/gallery/img15.jpg",
+  "/images/gallery/img9.jpg",
+  "/images/gallery/img12.jpg",
 ];
 
 /* ─────────────────────── PAGE ─────────────────────── */
@@ -85,7 +85,7 @@ export default async function Home() {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background image */}
         <Image
-          src="/hero.jpg"
+          src="/images/hero-principal.jpg"
           alt="Vuelo en parapente sobre los valles andinos de Quito"
           fill
           priority
@@ -183,7 +183,7 @@ export default async function Home() {
                     src={fl.image}
                     alt={fl.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={`object-cover transition-transform duration-500 group-hover:scale-105 ${fl.title === "Vuelo de Quince Años" ? "object-[center_30%]" : ""}`}
                     sizes="(max-width:640px)100vw,(max-width:1024px)50vw,25vw"
                   />
                   <span className={`absolute top-3 left-3 rounded-lg ${fl.tagColor} px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white`}>
@@ -234,7 +234,7 @@ export default async function Home() {
             >
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src="/hero.jpg"
+                  src="/images/extra-banner.jpg"
                   alt="Parapente volando con banner aéreo personalizado"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -271,7 +271,7 @@ export default async function Home() {
             >
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src="/hero.jpg"
+                  src="/images/extra-letras.jpg"
                   alt="Letras gigantes en tierra visibles desde el aire"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"

@@ -16,7 +16,7 @@ const routes = [
     tagColor: "bg-brand-green",
     title: "Ruta Cerro El Auqui – Lumbisí",
     subtitle: "Cumbayá, Quito",
-    image: "/route-auqui.jpg",
+    image: "/images/route-auqui.jpg",
     desc: "Un vuelo dinámico y escénico que despega desde el imponente cerro El Auqui, sobrevolando valles verdes y montañas hasta aterrizar suavemente en el acogedor valle de Lumbisí en Cumbayá.",
     details: [
       { label: "Tiempo en vuelo", value: "10 – 12 min" },
@@ -30,7 +30,7 @@ const routes = [
     tagColor: "bg-brand-blue",
     title: "Ruta Teleférico – La Carolina",
     subtitle: "Pichincha – Centro-Norte de Quito",
-    image: "/route-teleferico.jpg",
+    image: "/images/route-teleferico.jpg",
     desc: "Una aventura de gran altura con despegue desde las laderas del Teleférico (volcán Pichincha). Disfruta de vistas panorámicas espectaculares de la ciudad hasta aterrizar en el icónico parque La Carolina.",
     details: [
       { label: "Tiempo en vuelo", value: "17 – 20 min" },
@@ -46,7 +46,7 @@ const plans = [
     tag: "ROMÁNTICO",
     tagColor: "bg-rose-500",
     title: "Cásate Conmigo",
-    image: "/plan-casate.jpg",
+    image: "/images/plan-casate.jpg",
     desc: "La propuesta de matrimonio perfecta. Coordina un vuelo biplaza con tu pareja y sorpréndela al aterrizar con letras gigantes en tierra, pétalos de flores y un momento que recordarán para siempre.",
     includes: [
       "La pareja vuela en simultaneo (cada uno con un piloto)",
@@ -59,7 +59,7 @@ const plans = [
     tag: "INOLVIBLE",
     tagColor: "bg-amber-500",
     title: "Vuelo de Quince Años",
-    image: "/plan-quince.jpg",
+    image: "/images/plan-quince.jpg",
     desc: "Celebra una fecha tan especial de la forma más única e inolvidable: ¡volando! Un vuelo exclusivo con sesión de fotos, banner aéreo personalizado y recuerdos que durarán toda la vida.",
     includes: [
       "Vuelo de celebración personalizado",
@@ -214,7 +214,7 @@ export default function VuelosPage() {
                     src={plan.image}
                     alt={plan.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={`object-cover transition-transform duration-500 group-hover:scale-105 ${plan.title === "Vuelo de Quince Años" ? "object-[center_30%]" : ""}`}
                     sizes="(max-width:768px)100vw,50vw"
                   />
                   <span className={`absolute top-4 left-4 rounded-lg ${plan.tagColor} px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white`}>
@@ -268,7 +268,7 @@ export default function VuelosPage() {
             <div className="group rounded-2xl bg-white shadow-md ring-1 ring-black/5 overflow-hidden transition hover:shadow-xl">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/extra-banner.jpg"
+                  src="/images/extra-banner.jpg"
                   alt="Parapente volando con banner aéreo personalizado"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -313,7 +313,7 @@ export default function VuelosPage() {
             <div className="group rounded-2xl bg-white shadow-md ring-1 ring-black/5 overflow-hidden transition hover:shadow-xl">
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src="/extra-letras.jpg"
+                  src="/images/extra-letras.jpg"
                   alt="Letras gigantes en tierra visibles desde el aire"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
