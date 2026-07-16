@@ -55,10 +55,10 @@ export default function NosotrosPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#0B132B] to-brand-blue/30">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--brand-blue)_0%,transparent_60%)] opacity-20" />
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-footer-bg to-brand-turquoise-darker/60">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--brand-turquoise)_0%,transparent_60%)] opacity-20" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold tracking-wide text-brand-blue uppercase">
+          <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
             Conócenos
           </p>
           <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-white">Sobre Nosotros</h1>
@@ -75,7 +75,7 @@ export default function NosotrosPage() {
           <div className="grid gap-8 md:grid-cols-2">
             {/* Misión */}
             <div className="rounded-2xl bg-white p-8 shadow-md ring-1 ring-black/5">
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green mb-5">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-turquoise/10 text-brand-turquoise mb-5">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="10" />
                   <circle cx="12" cy="12" r="6" />
@@ -91,7 +91,7 @@ export default function NosotrosPage() {
             </div>
             {/* Visión */}
             <div className="rounded-2xl bg-white p-8 shadow-md ring-1 ring-black/5">
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue mb-5">
+              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-turquoise/10 text-brand-turquoise mb-5">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                   <circle cx="12" cy="12" r="3" />
@@ -109,10 +109,10 @@ export default function NosotrosPage() {
       </section>
 
       {/* ── Equipo ── */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-background-secondary">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold tracking-wide text-brand-blue uppercase">
+            <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
               Nuestro Equipo
             </p>
             <h2 className="mt-2 text-3xl font-bold text-foreground">
@@ -125,11 +125,11 @@ export default function NosotrosPage() {
                 key={member.name}
                 className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 transition hover:shadow-xl hover:-translate-y-1"
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-brand-green text-2xl font-bold text-white mb-4">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-brand-turquoise-dark to-brand-turquoise text-2xl font-bold text-white mb-4">
                   {member.name.charAt(0)}
                 </div>
                 <h3 className="text-lg font-bold text-foreground">{member.name}</h3>
-                <p className="text-sm font-medium text-brand-blue">{member.role}</p>
+                <p className="text-sm font-medium text-brand-turquoise">{member.role}</p>
                 <p className="mt-1 text-xs text-brand-green font-semibold">{member.exp}</p>
                 <p className="mt-3 text-sm text-foreground/60 leading-relaxed">{member.desc}</p>
               </div>
@@ -142,7 +142,7 @@ export default function NosotrosPage() {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold tracking-wide text-brand-green uppercase">
+            <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
               Tu seguridad es nuestra prioridad
             </p>
             <h2 className="mt-2 text-3xl font-bold text-foreground">
@@ -155,7 +155,7 @@ export default function NosotrosPage() {
                 key={item.title}
                 className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 text-center"
               >
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green mb-4">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-brand-turquoise/10 text-brand-turquoise mb-4">
                   <SafetyIcon name={item.icon} />
                 </div>
                 <h3 className="text-sm font-bold text-foreground">{item.title}</h3>

@@ -21,13 +21,13 @@ const routes = [
     details: [
       { label: "Tiempo en vuelo", value: "10 – 12 min" },
       { label: "Tipo", value: "Vuelo panoramico" },
-      { label: "Incluye", value: "Fotos y video" },
-      { label: "Nivel", value: "Todos los niveles" },
+      { label: "Incluye", value: "Transporte y kit de hidratación" },
+      { label: "Altura del despegue", value: "2800 msnm" },
     ],
   },
   {
     tag: "AVENTURA",
-    tagColor: "bg-brand-blue",
+    tagColor: "bg-brand-turquoise",
     title: "Ruta Teleférico – La Carolina",
     subtitle: "Pichincha – Centro-Norte de Quito",
     image: "/images/route-teleferico.jpg",
@@ -35,8 +35,8 @@ const routes = [
     details: [
       { label: "Tiempo en vuelo", value: "17 – 20 min" },
       { label: "Tipo", value: "Vuelo de altura" },
-      { label: "Incluye", value: "Fotos y video" },
-      { label: "Nivel", value: "Todos los niveles" },
+      { label: "Incluye", value: "Transporte y kit de hidratación" },
+      { label: "Altura del despegue", value: "3100 msnm" },
     ],
   },
 ];
@@ -56,7 +56,7 @@ const plans = [
     ],
   },
   {
-    tag: "INOLVIBLE",
+    tag: "INOLVIDABLE",
     tagColor: "bg-amber-500",
     title: "Vuelo de Quince Años",
     image: "/images/plan-quince.jpg",
@@ -64,7 +64,7 @@ const plans = [
     includes: [
       "Vuelo de celebración personalizado",
       "Banner aéreo de \"Feliz cumpleaños\"",
-      "Sesión de fotos profesional en vuelo y tierra",
+      "Sesión de fotos en vuelo y tierra",
       "Video resumen del vuelo completo",
     ],
   },
@@ -108,8 +108,8 @@ export default function VuelosPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#0B132B] to-brand-green/20">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--brand-green)_0%,transparent_60%)] opacity-15" />
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-footer-bg to-brand-turquoise-darker/60">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--brand-turquoise)_0%,transparent_60%)] opacity-15" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-sm font-semibold tracking-wide text-brand-green uppercase">
             Elige tu aventura
@@ -128,7 +128,7 @@ export default function VuelosPage() {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-sm font-semibold tracking-wide text-brand-blue uppercase">
+            <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
               Rutas de vuelo
             </p>
             <h2 className="mt-2 text-3xl font-bold text-foreground">
@@ -161,12 +161,12 @@ export default function VuelosPage() {
                 {/* Content */}
                 <div className="lg:w-1/2">
                   <h3 className="text-2xl font-bold text-foreground">{route.title}</h3>
-                  <p className="text-sm text-brand-blue font-medium">{route.subtitle}</p>
+                  <p className="text-sm text-brand-turquoise font-medium">{route.subtitle}</p>
                   <p className="mt-4 text-foreground/70 leading-relaxed">{route.desc}</p>
 
                   <div className="mt-6 grid grid-cols-2 gap-4">
                     {route.details.map((d) => (
-                      <div key={d.label} className="rounded-xl bg-slate-50 p-3">
+                      <div key={d.label} className="rounded-xl bg-brand-turquoise-soft p-3">
                         <p className="text-xs text-foreground/50 font-medium">{d.label}</p>
                         <p className="text-sm font-semibold text-foreground">{d.value}</p>
                       </div>
@@ -177,7 +177,7 @@ export default function VuelosPage() {
                     href="https://wa.me/593998003003"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center gap-2 rounded-xl bg-brand-green px-6 py-3 text-sm font-semibold text-white shadow-md shadow-brand-green/25 transition hover:bg-brand-green-dark"
+                    className="mt-6 inline-flex items-center gap-2 rounded-xl bg-brand-turquoise-dark px-6 py-3 text-sm font-semibold text-white shadow-md shadow-brand-turquoise-dark/25 transition hover:bg-brand-turquoise-darker"
                   >
                     Reservar esta ruta
                   </a>
@@ -189,10 +189,10 @@ export default function VuelosPage() {
       </section>
 
       {/* ── Planes Especiales ── */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-background-secondary">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold tracking-wide text-brand-blue uppercase">
+            <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
               Paquetes experienciales
             </p>
             <h2 className="mt-2 text-3xl font-bold text-foreground">
@@ -238,7 +238,7 @@ export default function VuelosPage() {
                     href="https://wa.me/593998003003"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-green px-6 py-3 text-sm font-semibold text-white shadow-md shadow-brand-green/25 transition hover:bg-brand-green-dark"
+                    className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-brand-turquoise-dark px-6 py-3 text-sm font-semibold text-white shadow-md shadow-brand-turquoise-dark/25 transition hover:bg-brand-turquoise-darker"
                   >
                     Reservar este plan
                   </a>
@@ -253,7 +253,7 @@ export default function VuelosPage() {
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-sm font-semibold tracking-wide text-brand-blue uppercase">
+            <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
               Personaliza tu experiencia
             </p>
             <h2 className="mt-2 text-3xl font-bold text-foreground">

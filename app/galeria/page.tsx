@@ -50,10 +50,10 @@ export default function GaleriaPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#0B132B] to-brand-blue/30">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--brand-blue)_0%,transparent_70%)] opacity-15" />
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-footer-bg to-brand-turquoise-darker/60">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--brand-turquoise)_0%,transparent_70%)] opacity-15" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold tracking-wide text-brand-blue uppercase">
+          <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
             Galería
           </p>
           <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-white">
@@ -82,9 +82,9 @@ export default function GaleriaPage() {
                   sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
                 />
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-turquoise-darker/80 via-brand-turquoise-darker/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
                   <div>
-                    <span className="inline-block rounded-full bg-brand-blue/80 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white mb-2">
+                    <span className="inline-block rounded-full bg-brand-turquoise/80 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white mb-2">
                       {img.category}
                     </span>
                     <p className="text-sm font-medium text-white">{img.alt}</p>
@@ -97,7 +97,7 @@ export default function GaleriaPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-background-secondary">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-foreground">
             ¿Quieres ser parte de nuestra galería?

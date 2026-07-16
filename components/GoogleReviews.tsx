@@ -44,10 +44,10 @@ export default function GoogleReviewsSection({
   totalReviews,
 }: GoogleReviewsSectionProps) {
   return (
-    <section className="py-20">
+    <section className="py-20 bg-brand-turquoise-soft">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <p className="text-sm font-semibold tracking-wide text-brand-blue uppercase">
+          <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
             Lo que dicen nuestros clientes
           </p>
           <h2 className="mt-2 text-3xl font-bold text-foreground">
@@ -90,7 +90,7 @@ export default function GoogleReviewsSection({
                     unoptimized
                   />
                 ) : (
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-blue/10 text-sm font-bold text-brand-blue">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-turquoise/10 text-sm font-bold text-brand-turquoise">
                     {r.authorName.charAt(0)}
                   </div>
                 )}
@@ -128,10 +128,10 @@ export default function GoogleReviewsSection({
 /* ─── Fallback when API is unavailable ─── */
 export function GoogleReviewsFallback() {
   return (
-    <section className="py-20">
+    <section className="py-20 bg-brand-turquoise-soft">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <p className="text-sm font-semibold tracking-wide text-brand-blue uppercase">
+          <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
             Lo que dicen nuestros clientes
           </p>
           <h2 className="mt-2 text-3xl font-bold text-foreground">
@@ -139,7 +139,6 @@ export function GoogleReviewsFallback() {
           </h2>
         </div>
         <div className="text-center rounded-2xl bg-white p-10 shadow-md ring-1 ring-black/5">
-          
           <p className="text-foreground/60 text-sm">
             Descubre lo que nuestros clientes opinan sobre nosotros.
           </p>
@@ -147,7 +146,7 @@ export function GoogleReviewsFallback() {
             href="https://maps.app.goo.gl/mtzPzetr9ccpC68b6"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-brand-blue px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-brand-blue/90"
+            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-brand-turquoise-dark px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-brand-turquoise-darker"
           >
             <GoogleLogo />
             Ver reseñas en Google Maps

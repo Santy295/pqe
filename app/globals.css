@@ -1,23 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #0B132B;
-  --brand-green: #579E00;
-  --brand-green-dark: #467E00;
-  --brand-blue: #00ACE7;
-  --brand-blue-dark: #008FBF;
+  --brand-turquoise: #049CB6;
+  --brand-turquoise-dark: #037A8E;
+  --brand-turquoise-darker: #026B7D;
+  --brand-turquoise-soft: #E8F7FA;
+  --brand-green: #7DA520;
+  --brand-green-dark: #5F7D18;
+  --brand-green-soft: #F1F6E7;
+  --text-primary: #16343B;
+  --text-secondary: #5E6E72;
+  --background-main: #FFFFFF;
+  --background-secondary: #F7FAF8;
+  --border-soft: #DCE7E6;
+  --footer-background: #0C323A;
   --brand-whatsapp: #25D366;
 }
 
 @theme {
+  --color-brand-turquoise: var(--brand-turquoise);
+  --color-brand-turquoise-dark: var(--brand-turquoise-dark);
+  --color-brand-turquoise-darker: var(--brand-turquoise-darker);
+  --color-brand-turquoise-soft: var(--brand-turquoise-soft);
   --color-brand-green: var(--brand-green);
   --color-brand-green-dark: var(--brand-green-dark);
-  --color-brand-blue: var(--brand-blue);
-  --color-brand-blue-dark: var(--brand-blue-dark);
+  --color-brand-green-soft: var(--brand-green-soft);
   --color-brand-whatsapp: var(--brand-whatsapp);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--background-main);
+  --color-background-secondary: var(--background-secondary);
+  --color-foreground: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border-soft: var(--border-soft);
+  --color-footer-bg: var(--footer-background);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -27,31 +41,18 @@ html {
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
+  background-color: var(--background-main);
+  color: var(--text-primary);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
 
 ::selection {
-  background-color: var(--brand-blue);
+  background-color: var(--brand-turquoise);
   color: white;
 }
 
-/* WhatsApp pulse animation */
-@keyframes wa-pulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-  }
-  50% {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
-  }
-}
-.animate-wa-pulse {
-  animation: wa-pulse 2s ease-in-out infinite;
-}
+
 
 /* Fade-in on scroll (used via IntersectionObserver) */
 @keyframes fade-up {

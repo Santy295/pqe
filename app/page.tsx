@@ -34,16 +34,16 @@ const flights = [
     tagColor: "bg-brand-green",
     title: "Ruta El Auqui – Lumbisí",
     desc: "Despega del cerro El Auqui y aterriza en el valle de Lumbisí, Cumbayá.",
-    details: ["10 – 12 min", "Vuelo panorámico", "Fotos y video incluido", "Instalaciones privadas en despegue"],
+    details: ["10 – 12 min", "Vuelo panorámico", "Instalaciones privadas en despegue"],
     image: "/images/route-auqui.jpg",
     href: "/vuelos",
   },
   {
     tag: "AVENTURA",
-    tagColor: "bg-brand-blue",
+    tagColor: "bg-brand-turquoise",
     title: "Ruta Teleférico – La Carolina",
     desc: "Despega desde el Teleférico y aterriza en el parque La Carolina.",
-    details: ["17 – 20 min", "La mejor vista de la ciudad", "Fotos y video incluido"],
+    details: ["17 – 20 min", "La mejor vista de la ciudad"],
     image: "/images/route-teleferico.jpg",
     href: "/vuelos",
   },
@@ -85,15 +85,16 @@ export default async function Home() {
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {/* Background image */}
         <Image
-          src="/images/hero-principal.jpg"
+          src="/images/hero-principal.png"
           alt="Vuelo en parapente sobre los valles andinos de Quito"
           fill
           priority
           className="object-cover"
           sizes="100vw"
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B132B]/80 via-[#0B132B]/50 to-transparent" />
+        {/* Overlay vignette effect */}
+        <div className="absolute inset-0 bg-black/20" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_10%,_rgba(0,0,0,0.8)_100%)]" />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32">
           <p className="mb-4 inline-block rounded-full bg-brand-green/20 px-4 py-1.5 text-sm font-semibold tracking-wide text-brand-green">
@@ -101,7 +102,7 @@ export default async function Home() {
           </p>
           <h1 className="max-w-2xl text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
             Siente la libertad{" "}
-            <span className="text-brand-blue">en el cielo</span>
+            <span className="text-[#049CB6]">en el cielo</span>
           </h1>
           <p className="mt-6 max-w-lg text-lg text-white/80 leading-relaxed">
             Vuelos en parapente biplaza con pilotos certificados. Seguridad,
@@ -112,7 +113,7 @@ export default async function Home() {
               href="https://wa.me/593998003003"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl bg-brand-whatsapp px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-whatsapp/25 transition hover:brightness-110"
+              className="inline-flex items-center gap-2 rounded-xl bg-brand-green px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-green-dark"
             >
               <WhatsAppMini />
               Reservar por WhatsApp
@@ -134,7 +135,7 @@ export default async function Home() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 rounded-2xl bg-white p-6 shadow-xl ring-1 ring-black/5">
             {features.map((f) => (
               <div key={f.title} className="flex gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-blue/10 text-brand-blue">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-turquoise/10 text-brand-turquoise">
                   <FeatureIcon name={f.icon} />
                 </div>
                 <div>
@@ -307,11 +308,11 @@ export default async function Home() {
       </section>
 
       {/* ── GALLERY PREVIEW ── */}
-      <section className="py-20 bg-slate-50 overflow-hidden">
+      <section className="py-20 bg-background-secondary overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-10 items-center">
             <div className="lg:w-1/3">
-              <p className="text-sm font-semibold tracking-wide text-brand-blue uppercase">
+              <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
                 Galería
               </p>
               <h2 className="mt-2 text-3xl font-bold text-foreground">
@@ -359,8 +360,8 @@ export default async function Home() {
       )}
 
       {/* ── CTA BANNER ── */}
-      <section className="relative overflow-hidden bg-[#0B132B] py-20">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B132B] via-[#0B132B]/80 to-brand-blue/20" />
+      <section className="relative overflow-hidden bg-footer-bg py-20">
+        <div className="absolute inset-0 bg-gradient-to-t from-footer-bg via-footer-bg/80 to-brand-turquoise-darker/50" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white">
             ¿Listo para volar?
@@ -372,7 +373,7 @@ export default async function Home() {
             href="https://wa.me/593998003003"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-brand-whatsapp px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-brand-whatsapp/25 transition hover:brightness-110"
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-brand-green px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-green-dark"
           >
             <WhatsAppMini />
             Reservar por WhatsApp
