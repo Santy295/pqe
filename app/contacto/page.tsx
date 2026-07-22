@@ -7,7 +7,7 @@ import { SocialIcon } from "../../components/SocialIcon";
 
 const routeOptions = [
   "Ruta El Auqui – Lumbisí",
-  "Ruta Teleférico – La Carolina",
+  "Ruta Pichincha – La Carolina",
   "Plan Cásate Conmigo",
   "Plan Quince Años",
   "Otro / No estoy seguro",
@@ -233,9 +233,9 @@ export default function ContactoPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
-                    className="flex h-12 w-12 items-center justify-center rounded-xl bg-foreground/5 text-foreground/60 transition-all duration-300 hover:scale-110 hover:bg-[#E1306C] hover:text-white hover:shadow-md"
+                    className="flex h-16 w-16 items-center justify-center rounded-2xl bg-foreground/5 text-foreground/60 transition-all duration-300 hover:scale-110 hover:bg-[#E1306C] hover:text-white hover:shadow-md"
                   >
-                    <SocialIcon name="instagram" size={22} />
+                    <SocialIcon name="instagram" size={32} />
                   </a>
 
                   <a
@@ -243,9 +243,9 @@ export default function ContactoPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="TikTok"
-                    className="flex h-12 w-12 items-center justify-center rounded-xl bg-foreground/5 text-foreground/60 transition-all duration-300 hover:scale-110 hover:bg-black hover:text-white hover:shadow-md"
+                    className="flex h-16 w-16 items-center justify-center rounded-2xl bg-foreground/5 text-foreground/60 transition-all duration-300 hover:scale-110 hover:bg-black hover:text-white hover:shadow-md"
                   >
-                    <SocialIcon name="tiktok" size={22} />
+                    <SocialIcon name="tiktok" size={32} />
                   </a>
 
                   <a
@@ -253,9 +253,9 @@ export default function ContactoPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook"
-                    className="flex h-12 w-12 items-center justify-center rounded-xl bg-foreground/5 text-foreground/60 transition-all duration-300 hover:scale-110 hover:bg-[#1877F2] hover:text-white hover:shadow-md"
+                    className="flex h-16 w-16 items-center justify-center rounded-2xl bg-foreground/5 text-foreground/60 transition-all duration-300 hover:scale-110 hover:bg-[#1877F2] hover:text-white hover:shadow-md"
                   >
-                    <SocialIcon name="facebook" size={22} />
+                    <SocialIcon name="facebook" size={32} />
                   </a>
                 </div>
               </div>

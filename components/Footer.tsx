@@ -18,7 +18,7 @@ const navColumns = [
     title: "Vuelos",
     links: [
       { href: "/vuelos", label: "Ruta El Auqui" },
-      { href: "/vuelos", label: "Ruta Teleférico" },
+      { href: "/vuelos", label: "Ruta Pichincha" },
       { href: "/vuelos", label: "Cásate Conmigo" },
       { href: "/vuelos", label: "Vuelo de 15 Años" },
     ],
@@ -34,26 +34,26 @@ export default function Footer() {
           <div>
             <div className="mb-6 inline-block">
               <Image
-                src="/images/logo.png"
+                src="/images/logoMarlon.png"
                 alt="PQE Logo"
                 width={300}
                 height={100}
-                className="object-contain h-20 sm:h-28 w-auto"
+                className="object-contain h-12 w-auto sm:h-14 mr-2 sm:mr-4 transform scale-125 sm:scale-[2.0] origin-left"
               />
-            </div>
+            </div> 
             <p className="text-sm text-white/60 leading-relaxed">
               Vive la libertad.<br />Siente el cielo.
             </p>
             {/* Social icons */}
-           <div className="mt-5 flex gap-3">
+           <div className="mt-5 flex gap-4">
               <a
                 href={SOCIAL_LINKS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
               >
-                <SocialIcon name="instagram" />
+                <SocialIcon name="instagram" size={24} />
               </a>
 
               <a
@@ -61,9 +61,9 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
               >
-                <SocialIcon name="facebook" />
+                <SocialIcon name="facebook" size={24} />
               </a>
 
               <a
@@ -71,9 +71,9 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
-                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
               >
-                <SocialIcon name="tiktok" />
+                <SocialIcon name="tiktok" size={24} />
               </a>
             </div>
           </div>

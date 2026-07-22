@@ -19,31 +19,33 @@ import img14 from "@/public/images/gallery/img14.jpg";
 import img15 from "@/public/images/gallery/img15.jpg";
 import img16 from "@/public/images/gallery/img16.jpg";
 import img17 from "@/public/images/gallery/img17.jpg";
+import img18 from "@/public/images/gallery/img18.jpg";
 
 export const metadata: Metadata = {
   title: "Galería | PQE Vuelos en Parapente",
   description:
-    "Explora fotos y momentos increíbles de los vuelos en parapente de PQE sobre los cielos de Quito, Ecuador.",
+    "Explora fotos y momentos increíbles de los vuelos en parapente de PQE sobre el cielo de Quito, Ecuador.",
 };
 
 const images = [
-  { src: img1, alt: "Celebración especial de cumpleaños", category: "Eventos" },
-  { src: img10, alt: "Vuelo en pareja con cielo despejado", category: "En vuelo" },
-  { src: img15, alt: "Vuelo sobre el bosque y la ciudad", category: "En vuelo" },
-  { src: img6, alt: "Propuesta Cásate Conmigo en la montaña", category: "Eventos" },
-  { src: img11, alt: "Selfie en parapente sobre la ciudad", category: "En vuelo" },
-  { src: img2, alt: "Preparación antes del despegue", category: "Despegue" },
-  { src: img16, alt: "Vuelo divertido sobre las nubes", category: "En vuelo" },
-  { src: img12, alt: "Atardecer majestuoso con la bandera", category: "Despegue" },
-  { src: img7, alt: "Mar de nubes al amanecer", category: "Naturaleza" },
-  { src: img3, alt: "Vuelo panorámico sobre la ciudad", category: "Vistas aéreas" },
-  { src: img17, alt: "Revelación de género desde el aire", category: "Eventos" },
-  { src: img13, alt: "Terapia de vuelo en familia", category: "Despegue" },
-  { src: img8, alt: "Vuelo en parapente sobre Quito", category: "En vuelo" },
+  { src: img18, alt: "Majestuoso vuelo al amanecer sobre Quito", category: "En vuelo" },
+  { src: img1, alt: "Acampa en montaña antes de tu vuelo", category: "Despegue" },
+  { src: img10, alt: "Aproximación para un aterrizaje suave", category: "Aterrizaje" },
+  { src: img15, alt: "Sex reveal en montaña", category: "Eventos" },
+  { src: img6, alt: "Vista desde el majestuoso Pichincha", category: "Despegue" },
+  { src: img11, alt: "La mejor terapia", category: "Eventos" },
+  { src: img2, alt: "Celebración de cumpleaños en el Pichincha", category: "Eventos" },
+  { src: img16, alt: "Vuelo navideño sobre las nubes", category: "En vuelo" },
+  { src: img12, alt: "Despegue majestuoso al amanecer", category: "Despegue" },
+  { src: img7, alt: "La mejor vista de Quito", category: "En vuelo" },
+  { src: img3, alt: "Vuelo panorámico sobre la ciudad", category: "En vuelo" },
+  { src: img17, alt: "Vuelo ruta El Auqui - Lumbisi", category: "En vuelo" },
+  { src: img13, alt: "Terapia de vuelo en familia", category: "En vuelo" },
+  { src: img8, alt: "Vuelo en parapente sobre Quito", category: "Despegue" },
   { src: img4, alt: "Festejo en la montaña", category: "Eventos" },
-  { src: img14, alt: "Aproximación para un aterrizaje suave", category: "Aterrizaje" },
-  { src: img9, alt: "Atardecer majestuoso en parapente", category: "Vistas aéreas" },
-  { src: img5, alt: "Relajación y vista increíble", category: "Naturaleza" },
+  { src: img14, alt: "El cielo desde otra perspectiva", category: "En vuelo" },
+  { src: img9, alt: "Momentos inolvidables", category: "Eventos" },
+  { src: img5, alt: "Un cumpleaños inolvidable", category: "Eventos" },
 ];
 
 export default function GaleriaPage() {

@@ -10,21 +10,49 @@ export const metadata: Metadata = {
 const team = [
   {
     name: "Roberto Navarro",
-    role: "Piloto Fundador y CEO",
-    exp: "+15 años de experiencia",
-    desc: "Piloto certificado APPI con más de 2.000 vuelos biplaza realizados sobre los cielos de Quito.",
+    role: "Piloto fundador, instructor y CEO",
+    exp: "25 años de experiencia",
+    desc: (
+      <ul className="list-disc pl-4 space-y-1">
+        <li>Piloto certificado por el ministerio de turismo y Quito turismo</li>
+        <li>Récord nacional en sierra ecuatoriana</li>
+      </ul>
+    ),
   },
   {
     name: "Marlon Navarro",
-    role: "Piloto Instructor",
-    exp: "+15 años de experiencia",
-    desc: "Especialista en vuelos tándem y acrobáticos. Certificación USHPA y entrenamiento en competiciones internacionales.",
+    role: "Piloto instructor",
+    exp: "20 años de experiencia",
+    desc: (
+      <ul className="list-disc pl-4 space-y-1">
+        <li>Piloto certificado por el ministerio de turismo y Quito turismo</li>
+        <li>Especialista en vuelos biplaza</li>
+      </ul>
+    ),
   },
   {
-    name: "Rominita Valentinita",
-    role: "Chica cobros y mi hermana",
-    exp: "+3 años en turismo de aventura",
-    desc: "Encargada de diseñar cada paquete experiencial, desde propuestas de matrimonio hasta celebraciones de 15 años.",
+    name: "Valentina Navarro",
+    role: "Brand Experience y Logística",
+    exp: "",
+    desc: (
+      <ul className="list-disc pl-4 space-y-1">
+        <li>Coordinación de la zona de despegue y pasajeros</li>
+        <li>Diseño de experiencias y paquetes personalizados</li>
+        <li>Gestión de merchandising y apoyo operativo</li>
+      </ul>
+    ),
+  },
+  {
+    name: "Gabriela Bedoya",
+    role: "Operaciones, Logística y Contenido",
+    exp: "",
+    desc: (
+      <ul className="list-disc pl-4 space-y-1">
+        <li>Coordinación de pasajeros y atención al cliente</li>
+        <li>Edición de contenido audiovisual y branding</li>
+        <li>Gestión de la cafetería y experiencia en montaña</li>
+      </ul>
+    ),
   },
 ];
 
@@ -119,19 +147,23 @@ export default function NosotrosPage() {
               Pilotos y Profesionales
             </h2>
           </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((member) => (
               <div
                 key={member.name}
-                className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 transition hover:shadow-xl hover:-translate-y-1"
+                className="flex flex-col rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 transition hover:shadow-xl hover:-translate-y-1"
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-brand-turquoise-dark to-brand-turquoise text-2xl font-bold text-white mb-4">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-turquoise-dark to-brand-turquoise text-2xl font-bold text-white mb-4">
                   {member.name.charAt(0)}
                 </div>
                 <h3 className="text-lg font-bold text-foreground">{member.name}</h3>
                 <p className="text-sm font-medium text-brand-turquoise">{member.role}</p>
-                <p className="mt-1 text-xs text-brand-green font-semibold">{member.exp}</p>
-                <p className="mt-3 text-sm text-foreground/60 leading-relaxed">{member.desc}</p>
+                {member.exp && (
+                  <p className="mt-1 text-xs text-brand-green font-semibold">{member.exp}</p>
+                )}
+                <div className="mt-3 text-sm text-foreground/60 leading-relaxed flex-1">
+                  {member.desc}
+                </div>
               </div>
             ))}
           </div>

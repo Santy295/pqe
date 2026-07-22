@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 
 const routes = [
   {
+    id: "ruta-auqui",
     tag: "MÁS POPULAR",
     tagColor: "bg-brand-green",
     title: "Ruta Cerro El Auqui – Lumbisí",
@@ -22,31 +23,33 @@ const routes = [
       { label: "Tiempo en vuelo", value: "10 – 12 min" },
       { label: "Tipo", value: "Vuelo panoramico" },
       { label: "Incluye", value: "Transporte y kit de hidratación" },
-      { label: "Altura del despegue", value: "2800 msnm" },
+      { label: "Altura del despegue", value: "3020 msnm" },
     ],
   },
   {
+    id: "ruta-teleferico",
     tag: "AVENTURA",
     tagColor: "bg-brand-turquoise",
-    title: "Ruta Teleférico – La Carolina",
+    title: "Ruta Pichincha – La Carolina",
     subtitle: "Pichincha – Centro-Norte de Quito",
     image: "/images/route-teleferico.jpg",
     desc: "Una aventura de gran altura con despegue desde las laderas del Teleférico (volcán Pichincha). Disfruta de vistas panorámicas espectaculares de la ciudad hasta aterrizar en el icónico parque La Carolina.",
     details: [
-      { label: "Tiempo en vuelo", value: "17 – 20 min" },
+      { label: "Tiempo en vuelo", value: "13 – 15 min" },
       { label: "Tipo", value: "Vuelo de altura" },
       { label: "Incluye", value: "Transporte y kit de hidratación" },
-      { label: "Altura del despegue", value: "3100 msnm" },
+      { label: "Altura del despegue", value: "4100 msnm" },
     ],
   },
 ];
 
 const plans = [
   {
+    id: "casate-conmigo",
     tag: "ROMÁNTICO",
     tagColor: "bg-rose-500",
     title: "Cásate Conmigo",
-    image: "/images/plan-casate.jpg",
+    image: "/images/plan-casate1.png",
     desc: "La propuesta de matrimonio perfecta. Coordina un vuelo biplaza con tu pareja y sorpréndela al aterrizar con letras gigantes en tierra, pétalos de flores y un momento que recordarán para siempre.",
     includes: [
       "La pareja vuela en simultaneo (cada uno con un piloto)",
@@ -56,6 +59,7 @@ const plans = [
     ],
   },
   {
+    id: "quince-anos",
     tag: "INOLVIDABLE",
     tagColor: "bg-amber-500",
     title: "Vuelo de Quince Años",
@@ -86,7 +90,7 @@ const extras = [
 const faqs = [
   {
     q: "¿Es seguro volar en parapente?",
-    a: "Absolutamente. Utilizamos equipos certificados internacionalmente y nuestros pilotos cuentan con más de 5 años de experiencia. Además, evaluamos las condiciones climáticas antes de cada vuelo.",
+    a: "Absolutamente. Utilizamos equipos certificados internacionalmente y nuestros pilotos cuentan con más de 15 años de experiencia. Además, evaluamos las condiciones climáticas antes de cada vuelo.",
   },
   {
     q: "¿Necesito experiencia previa?",
@@ -98,7 +102,7 @@ const faqs = [
   },
   {
     q: "¿Cuánto tiempo dura un vuelo?",
-    a: "Depende de la ruta. La ruta El Auqui dura entre 20-30 minutos y la ruta del Teleférico entre 30-40 minutos, dependiendo de las condiciones del viento.",
+    a: "Depende de la ruta. La ruta El Auqui dura entre 10-12 minutos y la ruta del Pichincha entre 13-15 minutos, dependiendo de las condiciones del viento.",
   },
 ];
 
@@ -132,7 +136,7 @@ export default function VuelosPage() {
               Rutas de vuelo
             </p>
             <h2 className="mt-2 text-3xl font-bold text-foreground">
-              Sobrevuela los Cielos de Quito
+              Sobrevuela el cielo de Quito
             </h2>
           </div>
 
@@ -140,9 +144,10 @@ export default function VuelosPage() {
             {routes.map((route, i) => (
               <div
                 key={route.title}
-                className={`flex flex-col ${
-                  i % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"
-                } gap-8 items-center`}
+                id={route.id}
+                className={`flex flex-col lg:flex-row gap-8 items-center scroll-mt-28 ${
+                  i % 2 !== 0 ? "lg:flex-row-reverse" : ""
+                }`}
               >
                 {/* Image */}
                 <div className="relative w-full lg:w-1/2 h-72 sm:h-96 rounded-2xl overflow-hidden shadow-xl">
@@ -207,7 +212,8 @@ export default function VuelosPage() {
             {plans.map((plan) => (
               <div
                 key={plan.title}
-                className="group rounded-2xl bg-white shadow-md ring-1 ring-black/5 overflow-hidden transition hover:shadow-xl"
+                id={plan.id}
+                className="group rounded-2xl bg-white shadow-md ring-1 ring-black/5 overflow-hidden transition hover:shadow-xl scroll-mt-28"
               >
                 <div className="relative h-64 overflow-hidden">
                   <Image

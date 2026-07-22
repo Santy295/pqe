@@ -23,13 +23,13 @@ export default function Navbar() {
         <div className="mt-3 flex items-center justify-between rounded-2xl bg-white/80 px-6 py-2.5 shadow-lg ring-1 ring-black/5 backdrop-blur-xl">
           {/* Logo and Text */}
           <div className="shrink-0">
-            <Link href="/" className="inline-flex items-center gap-8" aria-label="PQE Inicio">
+            <Link href="/" className="inline-flex items-center gap-2 sm:gap-8" aria-label="PQE Inicio">
               <Image
-                src="/images/logo.png"
+                src="/images/logoMarlon.png"
                 alt="PQE Logo"
                 width={200}
                 height={56}
-                className="object-contain h-14 w-auto sm:h-16 transform scale-150 sm:scale-[1.6] origin-left -translate-x-2 sm:-translate-x-4 mr-4 sm:mr-3"
+                className="object-contain h-12 w-auto sm:h-14 mr-2 sm:mr-4 transform scale-125 sm:scale-[1.35] origin-left"
                 priority
               />
               <div className="flex flex-col justify-center">

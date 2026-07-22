@@ -36,16 +36,16 @@ const flights = [
     desc: "Despega del cerro El Auqui y aterriza en el valle de Lumbisí, Cumbayá.",
     details: ["10 – 12 min", "Vuelo panorámico", "Instalaciones privadas en despegue"],
     image: "/images/route-auqui.jpg",
-    href: "/vuelos",
+    href: "/vuelos#ruta-auqui",
   },
   {
     tag: "AVENTURA",
     tagColor: "bg-brand-turquoise",
-    title: "Ruta Teleférico – La Carolina",
+    title: "Ruta Pichincha – La Carolina",
     desc: "Despega desde el Teleférico y aterriza en el parque La Carolina.",
-    details: ["17 – 20 min", "La mejor vista de la ciudad"],
+    details: ["13 – 15 min", "La mejor vista de la ciudad"],
     image: "/images/route-teleferico.jpg",
-    href: "/vuelos",
+    href: "/vuelos#ruta-teleferico",
   },
   {
     tag: "ROMÁNTICO",
@@ -53,8 +53,8 @@ const flights = [
     title: "Cásate Conmigo",
     desc: "Propuesta de matrimonio inolvidable desde el aire con letras gigantes.",
     details: ["Vuelo coordinado", "Letras gigantes en tierra", "Fotos y video premium"],
-    image: "/images/plan-casate.jpg",
-    href: "/vuelos",
+    image: "/images/plan-casate1.png",
+    href: "/vuelos#casate-conmigo",
   },
   {
     tag: "INOLVIDABLE",
@@ -63,16 +63,64 @@ const flights = [
     desc: "Celebra tus 15 años con un vuelo espectacular y sesión de fotos.",
     details: ["Vuelo de celebración", "Banner aéreo", "Sesión de fotos"],
     image: "/images/plan-quince.jpg",
-    href: "/vuelos",
+    href: "/vuelos#quince-anos",
   },
 ];
 
 const galleryImages = [
+  "/images/gallery/img18.jpg",
   "/images/gallery/img16.jpg",
   "/images/gallery/img13.jpg",
   "/images/gallery/img15.jpg",
   "/images/gallery/img9.jpg",
   "/images/gallery/img12.jpg",
+];
+
+const instalaciones = [
+  {
+    image: "/images/instalaciones/inst-1.jpg",
+    title: "Recepción cafetería",
+  },
+  {
+    image: "/images/instalaciones/inst-0.png",
+    title: "Spots para eventos",
+  },
+  {
+    image: "/images/instalaciones/inst-5.jpg",
+    title: "Área de Espera y Descanso",
+  },
+  {
+    image: "/images/instalaciones/inst-6.jpg",
+    title: "Alas de Neón",
+  },
+  {
+    image: "/images/instalaciones/inst-8.jpg",
+    title: "Letras de Amor",
+  },
+  {
+    image: "/images/instalaciones/inst-10.jpg",
+    title: "Columpios con Vista a Quito",
+  },
+  {
+    image: "/images/instalaciones/inst-2.jpg",
+    title: "Columpio infinito",
+  },
+  {
+    image: "/images/instalaciones/inst-13.jpg",
+    title: "Triciclo al cielo",
+  },
+  {
+    image: "/images/instalaciones/inst-7.jpg",
+    title: "Picnic Romántico",
+  },
+  {
+    image: "/images/instalaciones/inst-9.jpg",
+    title: "Amanecer en Columpios",
+  },
+  {
+    image: "/images/instalaciones/inst-11.jpg",
+    title: "Vista Panorámica",
+  },
 ];
 
 /* ─────────────────────── PAGE ─────────────────────── */
@@ -160,7 +208,7 @@ export default async function Home() {
                 Nuestros Vuelos
               </h2>
               <p className="mt-2 text-foreground/60">
-                Experiencias únicas sobre los cielos de Quito. Elige tu ruta ideal.
+                Experiencias únicas sobre el cielo de Quito. Elige tu ruta ideal.
               </p>
             </div>
             <Link
@@ -303,6 +351,49 @@ export default async function Home() {
                 </ul>
               </div>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── INSTALACIONES ── */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
+              Instalaciones privadas
+            </h2>
+            <p className="mt-2 text-foreground/60 max-w-2xl mx-auto">
+              Disfruta de instalaciones cómodas antes y después de tu vuelo, incluyendo áreas de descanso, miradores y espacios recreativos con vistas espectaculares de la ciudad.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-6">
+            {instalaciones.map((inst, i) => {
+              const isPortrait = i >= 6;
+              return (
+                <div
+                  key={i}
+                  className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5 transition hover:shadow-xl hover:-translate-y-1 ${
+                    isPortrait 
+                      ? "w-[calc(50%-12px)] sm:w-[calc(33.333%-16px)] lg:w-[calc(20%-19.2px)]" 
+                      : "w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+                  }`}
+                >
+                  <div className={`relative overflow-hidden bg-slate-100 flex items-center justify-center ${isPortrait ? "h-64 sm:h-80" : "h-56 sm:h-64"}`}>
+                    <Image
+                      src={inst.image}
+                      alt={inst.title}
+                      fill
+                      className="object-contain transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width:640px)100vw, (max-width:1024px)50vw, 33vw"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col p-4 text-center justify-center border-t border-black/5 bg-slate-50/50">
+                    <h3 className="text-xs sm:text-sm font-bold tracking-widest text-brand-blue uppercase">{inst.title}</h3>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
