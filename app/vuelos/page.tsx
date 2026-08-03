@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
+import FlightCardCarousel from "@/components/FlightCardCarousel";
 
 export const metadata: Metadata = {
   title: "Vuelos y Planes | PQE Vuelos en Parapente",
@@ -17,7 +18,11 @@ const routes = [
     tagColor: "bg-brand-green",
     title: "Ruta Cerro El Auqui – Lumbisí",
     subtitle: "Cumbayá, Quito",
-    image: "/images/route-auqui.jpg",
+    images: [
+      "/images/route-auqui.jpg",
+      "/images/route-auqui.jpg",
+      "/images/route-auqui.jpg",
+    ],
     desc: "Un vuelo dinámico y escénico que despega desde el imponente cerro El Auqui, sobrevolando valles verdes y montañas hasta aterrizar suavemente en el acogedor valle de Lumbisí en Cumbayá.",
     details: [
       { label: "Tiempo en vuelo", value: "10 – 12 min" },
@@ -32,8 +37,12 @@ const routes = [
     tagColor: "bg-brand-turquoise",
     title: "Ruta Pichincha – La Carolina",
     subtitle: "Pichincha – Centro-Norte de Quito",
-    image: "/images/route-teleferico.jpg",
-    desc: "Una aventura de gran altura con despegue desde las laderas del Teleférico (volcán Pichincha). Disfruta de vistas panorámicas espectaculares de la ciudad hasta aterrizar en el icónico parque La Carolina.",
+    images: [
+      "/images/route-teleferico.jpg",
+      "/images/route-teleferico.jpg",
+      "/images/route-teleferico.jpg",
+    ],
+    desc: "Una aventura de gran altura con despegue desde las faldas del Ruco Pichincha. Disfruta de vistas panorámicas espectaculares de la ciudad hasta aterrizar en el icónico parque La Carolina.",
     details: [
       { label: "Tiempo en vuelo", value: "13 – 15 min" },
       { label: "Tipo", value: "Vuelo de altura" },
@@ -49,7 +58,11 @@ const plans = [
     tag: "ROMÁNTICO",
     tagColor: "bg-rose-500",
     title: "Cásate Conmigo",
-    image: "/images/plan-casate1.png",
+    images: [
+      "/images/plan-casate1.png",
+      "/images/plan-casate1.png",
+      "/images/plan-casate1.png",
+    ],
     desc: "La propuesta de matrimonio perfecta. Coordina un vuelo biplaza con tu pareja y sorpréndela al aterrizar con letras gigantes en tierra, pétalos de flores y un momento que recordarán para siempre.",
     includes: [
       "La pareja vuela en simultaneo (cada uno con un piloto)",
@@ -63,7 +76,11 @@ const plans = [
     tag: "INOLVIDABLE",
     tagColor: "bg-amber-500",
     title: "Vuelo de Quince Años",
-    image: "/images/plan-quince.jpg",
+    images: [
+      "/images/plan-quince.jpg",
+      "/images/plan-quince.jpg",
+      "/images/plan-quince.jpg",
+    ],
     desc: "Celebra una fecha tan especial de la forma más única e inolvidable: ¡volando! Un vuelo exclusivo con sesión de fotos, banner aéreo personalizado y recuerdos que durarán toda la vida.",
     includes: [
       "Vuelo de celebración personalizado",
@@ -149,16 +166,14 @@ export default function VuelosPage() {
                   i % 2 !== 0 ? "lg:flex-row-reverse" : ""
                 }`}
               >
-                {/* Image */}
-                <div className="relative w-full lg:w-1/2 h-72 sm:h-96 rounded-2xl overflow-hidden shadow-xl">
-                  <Image
-                    src={route.image}
+                {/* Image Carousel */}
+                <div className="group relative w-full lg:w-1/2 h-72 sm:h-96 rounded-2xl overflow-hidden shadow-xl">
+                  <FlightCardCarousel
+                    images={route.images}
                     alt={route.title}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width:1024px)100vw,50vw"
+                    priority={i === 0}
                   />
-                  <span className={`absolute top-4 left-4 rounded-lg ${route.tagColor} px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white`}>
+                  <span className={`absolute top-4 left-4 z-20 rounded-lg ${route.tagColor} px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white`}>
                     {route.tag}
                   </span>
                 </div>
@@ -216,14 +231,13 @@ export default function VuelosPage() {
                 className="group rounded-2xl bg-white shadow-md ring-1 ring-black/5 overflow-hidden transition hover:shadow-xl scroll-mt-28"
               >
                 <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={plan.image}
+                  <FlightCardCarousel
+                    images={plan.images}
                     alt={plan.title}
-                    fill
-                    className={`object-cover transition-transform duration-500 group-hover:scale-105 ${plan.title === "Vuelo de Quince Años" ? "object-[center_30%]" : ""}`}
                     sizes="(max-width:768px)100vw,50vw"
+                    imageClassName={plan.title === "Vuelo de Quince Años" ? "object-[center_30%]" : ""}
                   />
-                  <span className={`absolute top-4 left-4 rounded-lg ${plan.tagColor} px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white`}>
+                  <span className={`absolute top-4 left-4 z-20 rounded-lg ${plan.tagColor} px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-white`}>
                     {plan.tag}
                   </span>
                 </div>

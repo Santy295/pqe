@@ -45,25 +45,15 @@ export default function Footer() {
               Vive la libertad.<br />Siente el cielo.
             </p>
             {/* Social icons */}
-           <div className="mt-5 flex gap-4">
+           <div className="mt-5 flex items-center gap-2 sm:gap-2.5">
               <a
                 href={SOCIAL_LINKS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
               >
-                <SocialIcon name="instagram" size={24} />
-              </a>
-
-              <a
-                href={SOCIAL_LINKS.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
-              >
-                <SocialIcon name="facebook" size={24} />
+                <SocialIcon name="instagram" size={20} />
               </a>
 
               <a
@@ -71,9 +61,39 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
               >
-                <SocialIcon name="tiktok" size={24} />
+                <SocialIcon name="tiktok" size={20} />
+              </a>
+
+              <a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
+              >
+                <SocialIcon name="facebook" size={20} />
+              </a>
+
+              <a
+                href={SOCIAL_LINKS.youtube}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="YouTube"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
+              >
+                <SocialIcon name="youtube" size={20} />
+              </a>
+
+              <a
+                href={SOCIAL_LINKS.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
+              >
+                <SocialIcon name="x" size={20} />
               </a>
             </div>
           </div>
@@ -111,7 +131,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-brand-green mt-0.5"><MailIcon /></span>
-                <span>rene1robertonavarro@hotmail.com</span>
+                <span>vuelaquitoparapente@gmail.com</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-brand-green mt-0.5"><MapPinIcon /></span>
@@ -119,7 +139,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-brand-green mt-0.5"><ClockIcon /></span>
-                <span>Lun – Dom: 8:00 AM – 6:00 PM</span>
+                <span>Lun – Dom: 7:00 AM – 1:00 PM</span>
               </li>
             </ul>
           </div>
@@ -131,8 +151,9 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
           <p>© {new Date().getFullYear()} PQE Vuelos en Parapente. Todos los derechos reservados.</p>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-white transition">Política de privacidad</a>
-            <a href="#" className="hover:text-white transition">Términos y condiciones</a>
+            <Link href="/politicas-de-uso-y-terminos-del-servicio" className="hover:text-white transition">
+              Políticas de Uso y Términos del Servicio
+            </Link>
           </div>
         </div>
       </div>

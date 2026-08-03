@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { fetchGoogleReviews } from "@/lib/google-reviews";
 import GoogleReviewsSection, { GoogleReviewsFallback } from "@/components/GoogleReviews";
+import HeroBackgroundCarousel from "@/components/HeroBackgroundCarousel";
 
 /* ─────────────────────── DATA ─────────────────────── */
 
@@ -9,22 +10,22 @@ const features = [
   {
     icon: "shield",
     title: "Seguridad Garantizada",
-    desc: "Equipos certificados y protocolos internacionales.",
+    desc: "Equipos certificados y protocolos internacionales",
   },
   {
     icon: "pilot",
     title: "Pilotos Expertos",
-    desc: "Más de 10 años de experiencia.",
+    desc: "Pilotos con más de 10 años de experiencia",
   },
   {
     icon: "camera",
     title: "Fotos y Videos HD",
-    desc: "Capturamos tu experiencia para que la recuerdes siempre.",
+    desc: "Capturamos tu experiencia para que la recuerdes siempre",
   },
   {
-    icon: "mountain",
-    title: "Vistas Increíbles",
-    desc: "Sobrevolamos los paisajes más hermosos de la ciudad.",
+    icon: "facility",
+    title: "Instalaciones Privadas",
+    desc: "Más comodidad antes y después del vuelo",
   },
 ];
 
@@ -42,7 +43,7 @@ const flights = [
     tag: "AVENTURA",
     tagColor: "bg-brand-turquoise",
     title: "Ruta Pichincha – La Carolina",
-    desc: "Despega desde el Teleférico y aterriza en el parque La Carolina.",
+    desc: "Despega desde las faldas del Ruco Pichincha y aterriza en el parque La Carolina.",
     details: ["13 – 15 min", "La mejor vista de la ciudad"],
     image: "/images/route-teleferico.jpg",
     href: "/vuelos#ruta-teleferico",
@@ -131,18 +132,8 @@ export default async function Home() {
     <>
       {/* ── HERO ── */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        {/* Background image */}
-        <Image
-          src="/images/hero-principal.png"
-          alt="Vuelo en parapente sobre los valles andinos de Quito"
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-        />
-        {/* Overlay vignette effect */}
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_10%,_rgba(0,0,0,0.8)_100%)]" />
+        {/* Carrusel animado de fondo y overlays de viñeta */}
+        <HeroBackgroundCarousel />
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32">
           <p className="mb-4 inline-block rounded-full bg-brand-green/20 px-4 py-1.5 text-sm font-semibold tracking-wide text-brand-green">
@@ -199,66 +190,126 @@ export default async function Home() {
       {/* ── FLIGHTS / PLANS ── */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-10">
-            <div>
-              <p className="text-sm font-semibold tracking-wide text-brand-blue uppercase">
-                Elige tu aventura
-              </p>
-              <h2 className="mt-2 text-3xl sm:text-4xl font-bold text-foreground">
-                Nuestros Vuelos
-              </h2>
-              <p className="mt-2 text-foreground/60">
-                Experiencias únicas sobre el cielo de Quito. Elige tu ruta ideal.
-              </p>
+          
+          <div className="flex flex-col lg:flex-row items-stretch justify-between gap-12 lg:gap-6 xl:gap-7">
+            
+            {/* ── BLOQUE IZQUIERDO: Nuestros Vuelos ── */}
+            <div className="flex-1 flex flex-col">
+              <div className="mb-8">
+                <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
+                  Elige tu aventura
+                </p>
+                <h2 className="mt-2 text-3xl font-bold text-foreground">
+                  Nuestras Rutas
+                </h2>
+                <p className="mt-2 text-foreground/60 leading-relaxed">
+                  Experiencias únicas para descubrir Quito desde el aire.
+                </p>
+              </div>
+              
+              <div className="grid gap-6 sm:grid-cols-2 flex-1">
+                {flights.slice(0, 2).map((fl) => (
+                  <Link
+                    key={fl.title}
+                    href={fl.href}
+                    className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5 transition hover:shadow-xl hover:-translate-y-1"
+                  >
+                    {/* Image */}
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={fl.image}
+                        alt={fl.title}
+                        fill
+                        className={`object-cover transition-transform duration-500 group-hover:scale-105 ${fl.title === "Vuelo de Quince Años" ? "object-[center_30%]" : ""}`}
+                        sizes="(max-width:640px)100vw,(max-width:1024px)50vw,25vw"
+                      />
+                      <span className={`absolute top-3 left-3 rounded-lg ${fl.tagColor} px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white`}>
+                        {fl.tag}
+                      </span>
+                    </div>
+                    {/* Info */}
+                    <div className="flex flex-1 flex-col p-5">
+                      <h3 className="text-base font-bold text-foreground">{fl.title}</h3>
+                      <p className="mt-1 text-sm text-foreground/60 leading-relaxed">{fl.desc}</p>
+                      <ul className="mt-4 space-y-1.5">
+                        {fl.details.map((d) => (
+                          <li key={d} className="flex items-center gap-2 text-xs text-foreground/70">
+                            <span className="h-1 w-1 rounded-full bg-brand-green" />
+                            {d}
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-auto pt-5">
+                        <span className="inline-flex w-full items-center justify-center rounded-xl bg-brand-green/10 px-4 py-2.5 text-sm font-semibold text-brand-green transition group-hover:bg-brand-green group-hover:text-white">
+                          Mas información
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
-            <Link
-              href="/vuelos"
-              className="text-sm font-semibold text-brand-blue hover:underline whitespace-nowrap"
-            >
-              Ver todos los vuelos →
-            </Link>
-          </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {flights.map((fl) => (
-              <Link
-                key={fl.title}
-                href={fl.href}
-                className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5 transition hover:shadow-xl hover:-translate-y-1"
-              >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <Image
-                    src={fl.image}
-                    alt={fl.title}
-                    fill
-                    className={`object-cover transition-transform duration-500 group-hover:scale-105 ${fl.title === "Vuelo de Quince Años" ? "object-[center_30%]" : ""}`}
-                    sizes="(max-width:640px)100vw,(max-width:1024px)50vw,25vw"
-                  />
-                  <span className={`absolute top-3 left-3 rounded-lg ${fl.tagColor} px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white`}>
-                    {fl.tag}
-                  </span>
-                </div>
-                {/* Info */}
-                <div className="flex flex-1 flex-col p-5">
-                  <h3 className="text-base font-bold text-foreground">{fl.title}</h3>
-                  <p className="mt-1 text-sm text-foreground/60 leading-relaxed">{fl.desc}</p>
-                  <ul className="mt-4 space-y-1.5">
-                    {fl.details.map((d) => (
-                      <li key={d} className="flex items-center gap-2 text-xs text-foreground/70">
-                        <span className="h-1 w-1 rounded-full bg-brand-green" />
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-auto pt-5">
-                    <span className="inline-flex w-full items-center justify-center rounded-xl bg-brand-green/10 px-4 py-2.5 text-sm font-semibold text-brand-green transition group-hover:bg-brand-green group-hover:text-white">
-                      Mas información
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
+            {/* ── LÍNEA VERTICAL DIVISORIA (Elegante y Sutil en Desktop) ── */}
+            <div className="hidden lg:block w-[1px] bg-foreground/10 self-stretch my-2 shrink-0" />
+
+            {/* ── BLOQUE DERECHO: Eventos Personalizados ── */}
+            <div className="flex-1 flex flex-col">
+              <div className="mb-8">
+                <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
+                  Momentos memorables
+                </p>
+                <h2 className="mt-2 text-3xl font-bold text-foreground">
+                  Eventos Personalizados
+                </h2>
+                <p className="mt-2 text-foreground/60 leading-relaxed">
+                  Experiencias diseñadas para celebrar momentos inolvidables desde el cielo.
+                </p>
+              </div>
+
+              <div className="grid gap-6 sm:grid-cols-2 flex-1">
+                {flights.slice(2, 4).map((fl) => (
+                  <Link
+                    key={fl.title}
+                    href={fl.href}
+                    className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5 transition hover:shadow-xl hover:-translate-y-1"
+                  >
+                    {/* Image */}
+                    <div className="relative h-48 overflow-hidden">
+                      <Image
+                        src={fl.image}
+                        alt={fl.title}
+                        fill
+                        className={`object-cover transition-transform duration-500 group-hover:scale-105 ${fl.title === "Vuelo de Quince Años" ? "object-[center_30%]" : ""}`}
+                        sizes="(max-width:640px)100vw,(max-width:1024px)50vw,25vw"
+                      />
+                      <span className={`absolute top-3 left-3 rounded-lg ${fl.tagColor} px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white`}>
+                        {fl.tag}
+                      </span>
+                    </div>
+                    {/* Info */}
+                    <div className="flex flex-1 flex-col p-5">
+                      <h3 className="text-base font-bold text-foreground">{fl.title}</h3>
+                      <p className="mt-1 text-sm text-foreground/60 leading-relaxed">{fl.desc}</p>
+                      <ul className="mt-4 space-y-1.5">
+                        {fl.details.map((d) => (
+                          <li key={d} className="flex items-center gap-2 text-xs text-foreground/70">
+                            <span className="h-1 w-1 rounded-full bg-brand-green" />
+                            {d}
+                          </li>
+                        ))}
+                      </ul>
+                      <div className="mt-auto pt-5">
+                        <span className="inline-flex w-full items-center justify-center rounded-xl bg-brand-green/10 px-4 py-2.5 text-sm font-semibold text-brand-green transition group-hover:bg-brand-green group-hover:text-white">
+                          Mas información
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -268,7 +319,7 @@ export default async function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Extras
+              Extras para tu vuelo
             </h2>
             <p className="mt-2 text-foreground/60">
               Haz que tu vuelo sea aún más especial con experiencias personalizadas que sorprenderán desde el cielo.
@@ -360,10 +411,10 @@ export default async function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-10 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Instalaciones privadas
+              Nuestras Instalaciones
             </h2>
             <p className="mt-2 text-foreground/60 max-w-2xl mx-auto">
-              Disfruta de instalaciones cómodas antes y después de tu vuelo, incluyendo áreas de descanso, miradores y espacios recreativos con vistas espectaculares de la ciudad.
+              Ven a vivir mucho más que un vuelo y disfruta de nuestra cafetería, spots privados y miradores con las mejores vistas de la ciudad, ideales para relajarte, compartir y disfrutar de un plan perfecto.
             </p>
           </div>
 
@@ -518,10 +569,14 @@ function FeatureIcon({ name }: { name: string }) {
           <circle cx="12" cy="13" r="4" />
         </svg>
       );
-    case "mountain":
+    case "facility":
       return (
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M8 3l4 8 5-5 5 15H2L8 3z" />
+          <path d="M3 21h18" />
+          <path d="M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16" />
+          <path d="M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4" />
+          <path d="M10 9h4" />
+          <path d="M10 13h4" />
         </svg>
       );
     default:

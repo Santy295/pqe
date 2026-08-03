@@ -194,7 +194,7 @@ export default function ContactoPage() {
                     </div>
                     <div>
                       <p className="text-xs text-foreground/50">Email</p>
-                      <p className="text-sm font-medium text-foreground">rene1robertonavarro@hotmail.com</p>
+                      <p className="text-sm font-medium text-foreground">vuelaquitoparapente@gmail.com</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
@@ -218,7 +218,7 @@ export default function ContactoPage() {
                     </div>
                     <div>
                       <p className="text-xs text-foreground/50">Horario</p>
-                      <p className="text-sm font-medium text-foreground">Lun – Dom: 8:00 AM – 6:00 PM</p>
+                      <p className="text-sm font-medium text-foreground">Lun – Dom: 7:00 AM – 1:00 PM</p>
                     </div>
                   </li>
                 </ul>
@@ -227,7 +227,7 @@ export default function ContactoPage() {
               {/* Social Media Card */}
               <div className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 flex flex-col items-center text-center">
                 <h3 className="text-lg font-bold text-foreground mb-6">Síguenos en redes sociales</h3>
-                <div className="flex items-center justify-center gap-5 sm:gap-8">
+                <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-5 w-full">
                   <a
                     href={SOCIAL_LINKS.instagram}
                     target="_blank"
@@ -256,6 +256,26 @@ export default function ContactoPage() {
                     className="flex h-16 w-16 items-center justify-center rounded-2xl bg-foreground/5 text-foreground/60 transition-all duration-300 hover:scale-110 hover:bg-[#1877F2] hover:text-white hover:shadow-md"
                   >
                     <SocialIcon name="facebook" size={32} />
+                  </a>
+
+                  <a
+                    href={SOCIAL_LINKS.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="YouTube"
+                    className="flex h-16 w-16 items-center justify-center rounded-2xl bg-foreground/5 text-foreground/60 transition-all duration-300 hover:scale-110 hover:bg-[#FF0000] hover:text-white hover:shadow-md"
+                  >
+                    <SocialIcon name="youtube" size={32} />
+                  </a>
+
+                  <a
+                    href={SOCIAL_LINKS.x}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="X (Twitter)"
+                    className="flex h-16 w-16 items-center justify-center rounded-2xl bg-foreground/5 text-foreground/60 transition-all duration-300 hover:scale-110 hover:bg-black hover:text-white hover:shadow-md"
+                  >
+                    <SocialIcon name="x" size={32} />
                   </a>
                 </div>
               </div>
