@@ -9,6 +9,7 @@ const links = [
   { href: "/", label: "Inicio" },
   { href: "/nosotros", label: "Nosotros" },
   { href: "/vuelos", label: "Vuelos" },
+  { href: "/escuela", label: "Escuela" },
   { href: "/galeria", label: "Galería" },
   { href: "/contacto", label: "Contacto" },
 ];
@@ -45,7 +46,7 @@ export default function Navbar() {
               <li key={l.href}>
                 <Link
                   href={l.href}
-                  className={`rounded-lg px-4 py-2 text-[15px] font-semibold transition-colors ${
+                  className={`rounded-lg px-2.5 lg:px-3.5 py-2 text-[15px] font-semibold transition-colors ${
                     pathname === l.href
                       ? "bg-brand-turquoise/10 text-brand-turquoise"
                       : "text-foreground/70 hover:text-brand-turquoise hover:bg-brand-turquoise/5"
