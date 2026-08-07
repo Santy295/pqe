@@ -132,9 +132,6 @@ export default function VuelosPage() {
       <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-footer-bg to-brand-turquoise-darker/60">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--brand-turquoise)_0%,transparent_60%)] opacity-15" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold tracking-wide text-brand-green uppercase">
-            Elige tu aventura
-          </p>
           <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-white">
             Nuestros Vuelos y Planes
           </h1>

@@ -7,11 +7,11 @@ import { useState } from "react";
 
 const links = [
   { href: "/", label: "Inicio" },
-  { href: "/nosotros", label: "Nosotros" },
   { href: "/vuelos", label: "Vuelos" },
   { href: "/escuela", label: "Escuela" },
+  { href: "/extras", label: "Extras" },
   { href: "/galeria", label: "Galería" },
-  { href: "/contacto", label: "Contacto" },
+  { href: "/nosotros", label: "Nosotros" },
 ];
 
 export default function Navbar() {
@@ -61,7 +61,7 @@ export default function Navbar() {
           {/* CTA + mobile toggle */}
           <div className="flex shrink-0 items-center gap-4">
             <Link
-              href="/contacto"
+              href="/nosotros"
               className="hidden lg:inline-flex items-center gap-2 rounded-xl bg-brand-green px-6 py-2 text-[15px] font-semibold text-white shadow-md shadow-brand-green/25 transition hover:bg-brand-green-dark"
             >
               Reserva ahora

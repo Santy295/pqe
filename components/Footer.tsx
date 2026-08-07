@@ -133,9 +133,16 @@ export default function Footer() {
                 <span className="text-brand-green mt-0.5"><MailIcon /></span>
                 <span>vuelaquitoparapente@gmail.com</span>
               </li>
-              <li className="flex items-start gap-2">
-                <span className="text-brand-green mt-0.5"><MapPinIcon /></span>
-                <span>Quito, Ecuador</span>
+              <li>
+                <a
+                  href="https://www.google.com/maps/place/Parapente+Quito+Ecuador/@-0.2192882,-78.5247212,22867m/data=!3m1!1e3!4m6!3m5!1s0x91d5bd884479c16d:0x6313317c10c84dca!8m2!3d-0.2172447!4d-78.4714489!16s%2Fg%2F11h0y9ft1q?entry=ttu&g_ep=EgoyMDI2MDgwNC4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-2 transition hover:text-brand-turquoise"
+                >
+                  <span className="text-brand-green mt-0.5 transition group-hover:text-brand-turquoise"><MapPinIcon /></span>
+                  <span>Quito, Ecuador</span>
+                </a>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-brand-green mt-0.5"><ClockIcon /></span>

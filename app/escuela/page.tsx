@@ -112,32 +112,17 @@ const comparativaData = [
 export default function EscuelaPage() {
   return (
     <>
-      {/* ── HERO ── */}
-      <section className="relative pt-32 pb-24 overflow-hidden bg-gradient-to-br from-footer-bg via-footer-bg/95 to-brand-turquoise-darker/70">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--brand-turquoise)_0%,transparent_60%)] opacity-20 pointer-events-none" />
+      {/* ── Hero ── */}
+      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-footer-bg to-brand-turquoise-darker/60">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--brand-turquoise)_0%,transparent_60%)] opacity-15" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-xs sm:text-sm font-bold tracking-widest text-brand-green uppercase bg-brand-green/15 inline-block px-4 py-1 rounded-full mb-4">
-            Escuela de Parapente PQE
-          </p>
-          <h1 className="mt-2 text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight max-w-4xl mx-auto">
-            Aprende a volar con <span className="text-brand-turquoise-light">seguridad y confianza.</span>
+          <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-white">
+            Vuela con seguridad y confianza
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-base sm:text-lg text-white/80 leading-relaxed font-normal">
+          <p className="mt-4 max-w-2xl mx-auto text-white/70 leading-relaxed">
             Inicia tu formación con pilotos certificados y avanza paso a paso hasta desarrollar
             las habilidades necesarias para volar de forma independiente.
           </p>
-          <div className="mt-10">
-            <Link
-              href="#camino-de-formacion"
-              className="inline-flex items-center gap-2 rounded-xl bg-brand-green px-8 py-4 text-base font-bold text-white shadow-lg shadow-brand-green/30 transition-all duration-300 hover:bg-brand-green-dark hover:-translate-y-0.5"
-            >
-              Comenzar mi formación
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19" />
-                <polyline points="19 12 12 19 5 12" />
-              </svg>
-            </Link>
-          </div>
         </div>
       </section>
 
