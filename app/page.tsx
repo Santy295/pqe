@@ -3,6 +3,7 @@ import Link from "next/link";
 import { fetchGoogleReviews } from "@/lib/google-reviews";
 import GoogleReviewsSection, { GoogleReviewsFallback } from "@/components/GoogleReviews";
 import HeroBackgroundCarousel from "@/components/HeroBackgroundCarousel";
+import CafeteriaCarousel from "@/components/CafeteriaCarousel";
 
 /* ─────────────────────── DATA ─────────────────────── */
 
@@ -78,10 +79,6 @@ const galleryImages = [
 ];
 
 const instalaciones = [
-  {
-    image: "/images/instalaciones/inst-1.jpg",
-    title: "Recepción cafetería",
-  },
   {
     image: "/images/instalaciones/inst-0.png",
     title: "Spots para eventos",
@@ -409,18 +406,64 @@ export default async function Home() {
       {/* ── INSTALACIONES ── */}
       <section className="py-20 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 text-center">
+          <div className="mb-12 text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Nuestras Instalaciones
+              Instalaciones privadas
             </h2>
-            <p className="mt-2 text-foreground/60 max-w-2xl mx-auto">
+            <p className="mt-3 text-foreground/60 max-w-2xl mx-auto">
               Ven a vivir mucho más que un vuelo y disfruta de nuestra cafetería, spots privados y miradores con las mejores vistas de la ciudad, ideales para relajarte, compartir y disfrutar de un plan perfecto.
             </p>
           </div>
 
+          {/* ── BLOQUE DESTACADO CAFETERÍA ── */}
+          <div className="mb-16">
+            <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+              
+              {/* Carrusel (55-60% width) */}
+              <div className="w-full lg:w-[55%]">
+                <CafeteriaCarousel />
+              </div>
+
+              {/* Información (40-45% width) */}
+              <div className="w-full lg:w-[45%] flex flex-col">
+                <p className="text-lg sm:text-xl font-bold tracking-wide text-brand-turquoise uppercase mb-3">
+                  CAFETERÍA PQE
+                </p>
+                <h3 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight">
+                  El cielo también se disfruta desde tierra
+                </h3>
+                
+                <div className="mt-6 space-y-4 text-foreground/70 leading-relaxed text-base sm:text-lg">
+                  <p>
+                    ¿Todavía no te animas a volar? Ven a conocer nuestra cafetería, disfruta del ambiente de PQE y contempla de cerca la experiencia del parapente mientras observas los vuelos.
+                  </p>
+                  <p>
+                    Ya sea que vengas a acompañar a alguien, a relajarte o simplemente a descubrir este mundo desde tierra, siempre hay una buena razón para visitarnos. Y quién sabe… quizá el próximo vuelo sea el tuyo.
+                  </p>
+                </div>
+
+                <div className="mt-8">
+                  <a
+                    href="https://www.google.com/maps/place/Parapente+Quito+Ecuador/@-0.2192882,-78.5247212,22867m/data=!3m1!1e3!4m6!3m5!1s0x91d5bd884479c16d:0x6313317c10c84dca!8m2!3d-0.2172447!4d-78.4714489!16s%2Fg%2F11h0y9ft1q?entry=ttu&g_ep=EgoyMDI2MDgwNC4wIKXMDSoASAFQAw%3D%3D"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl border border-foreground/20 px-6 py-3.5 text-sm font-semibold text-foreground transition hover:bg-foreground hover:text-white"
+                  >
+                    Cómo llegar
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="M12 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
           <div className="flex flex-wrap justify-center gap-6">
             {instalaciones.map((inst, i) => {
-              const isPortrait = i >= 6;
+              const isPortrait = i >= 5;
               return (
                 <div
                   key={i}

@@ -3,35 +3,34 @@ import Image from "next/image";
 import { SOCIAL_LINKS } from "../lib/constants";
 import { SocialIcon } from "./SocialIcon";
 
-const navColumns = [
-  {
-    title: "Navegación",
-    links: [
-      { href: "/", label: "Inicio" },
-      { href: "/nosotros", label: "Nosotros" },
-      { href: "/vuelos", label: "Vuelos" },
-      { href: "/galeria", label: "Galería" },
-      { href: "/contacto", label: "Contacto" },
-    ],
-  },
-  {
-    title: "Vuelos",
-    links: [
-      { href: "/vuelos", label: "Ruta El Auqui" },
-      { href: "/vuelos", label: "Ruta Pichincha" },
-      { href: "/vuelos", label: "Cásate Conmigo" },
-      { href: "/vuelos", label: "Vuelo de 15 Años" },
-    ],
-  },
+const navigationLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/vuelos", label: "Vuelos" },
+  { href: "/escuela", label: "Escuela" },
+  { href: "/servicios", label: "Servicios" },
+  { href: "/galeria", label: "Galería" },
+  { href: "/nosotros", label: "Nosotros" },
+];
+
+const vuelosLinks = [
+  { href: "/vuelos", label: "Ruta El Auqui – Lumbisí" },
+  { href: "/vuelos", label: "Ruta Pichincha – La Carolina" },
+  { href: "/vuelos", label: "Cásate Conmigo" },
+  { href: "/vuelos", label: "Vuelo de 15 Años" },
+];
+
+const escuelaLinks = [
+  { href: "/escuela", label: "Curso Introductorio" },
+  { href: "/escuela", label: "Curso Progresivo" },
 ];
 
 export default function Footer() {
   return (
     <footer className="bg-footer-bg text-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div>
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-6">
+          {/* 1. Brand */}
+          <div className="lg:col-span-2">
             <div className="mb-6 inline-block">
               <Image
                 src="/images/logoMarlon.png"
@@ -45,67 +44,101 @@ export default function Footer() {
               Vive la libertad.<br />Siente el cielo.
             </p>
             {/* Social icons */}
-           <div className="mt-5 flex items-center gap-2 sm:gap-2.5">
+            <div className="mt-5 flex flex-wrap items-center gap-2 sm:gap-2.5">
               <a
                 href={SOCIAL_LINKS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
               >
                 <SocialIcon name="instagram" size={20} />
               </a>
-
               <a
                 href={SOCIAL_LINKS.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
               >
                 <SocialIcon name="tiktok" size={20} />
               </a>
-
               <a
                 href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
               >
                 <SocialIcon name="facebook" size={20} />
               </a>
-
               <a
                 href={SOCIAL_LINKS.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
               >
                 <SocialIcon name="youtube" size={20} />
               </a>
-
               <a
                 href={SOCIAL_LINKS.x}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="X (Twitter)"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
+                className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/10 text-white/70 transition hover:bg-brand-turquoise hover:text-white"
               >
                 <SocialIcon name="x" size={20} />
               </a>
             </div>
           </div>
 
-          {/* Navigation columns */}
-          {navColumns.map((col) => (
-            <div key={col.title}>
+          {/* 2. Navegación */}
+          <div>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/40">
+              Navegación
+            </h3>
+            <ul className="space-y-2.5">
+              {navigationLinks.map((l) => (
+                <li key={l.label}>
+                  <Link
+                    href={l.href}
+                    className="text-sm text-white/60 transition hover:text-brand-turquoise"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 3. Vuelos */}
+          <div>
+            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/40">
+              Vuelos
+            </h3>
+            <ul className="space-y-2.5">
+              {vuelosLinks.map((l) => (
+                <li key={l.label}>
+                  <Link
+                    href={l.href}
+                    className="text-sm text-white/60 transition hover:text-brand-turquoise"
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 4. Escuela y Servicios */}
+          <div>
+            <div className="mb-8">
               <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/40">
-                {col.title}
+                Escuela
               </h3>
               <ul className="space-y-2.5">
-                {col.links.map((l) => (
+                {escuelaLinks.map((l) => (
                   <li key={l.label}>
                     <Link
                       href={l.href}
@@ -117,9 +150,18 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-          ))}
+            
+            <div>
+              <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/40">
+                Servicios
+              </h3>
+              {/* Estructura preparada para servicios futuros */}
+              <ul className="space-y-2.5">
+              </ul>
+            </div>
+          </div>
 
-          {/* Contact */}
+          {/* 5. Contacto */}
           <div>
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-white/40">
               Contacto

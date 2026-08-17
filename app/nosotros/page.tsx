@@ -5,6 +5,12 @@ import { useState } from "react";
 import type { FormEvent } from "react";
 import { SOCIAL_LINKS } from "../../lib/constants";
 import { SocialIcon } from "../../components/SocialIcon";
+import img18 from "@/public/images/gallery/img18.jpg";
+import img8 from "@/public/images/gallery/img8.jpg"; // Added image for 'Quiénes somos'
+import img1 from "@/public/images/gallery/img1.jpg";
+import img2 from "@/public/images/gallery/img2.jpg";
+import img3 from "@/public/images/gallery/img3.jpg";
+import img4 from "@/public/images/gallery/img4.jpg";
 
 const routeOptions = [
   "Ruta El Auqui – Lumbisí",
@@ -14,11 +20,12 @@ const routeOptions = [
   "Otro / No estoy seguro",
 ];
 
-const team = [
+const teamPilots = [
   {
     name: "Roberto Navarro",
     role: "Piloto fundador, instructor y CEO",
     exp: "25 años de experiencia",
+    image: img1,
     desc: (
       <ul className="list-disc pl-4 space-y-1">
         <li>Piloto certificado por el ministerio de turismo y Quito turismo</li>
@@ -30,6 +37,7 @@ const team = [
     name: "Marlon Navarro",
     role: "Piloto instructor",
     exp: "20 años de experiencia",
+    image: img2,
     desc: (
       <ul className="list-disc pl-4 space-y-1">
         <li>Piloto certificado por el ministerio de turismo y Quito turismo</li>
@@ -37,10 +45,14 @@ const team = [
       </ul>
     ),
   },
+];
+
+const teamStaff = [
   {
     name: "Valentina Navarro",
     role: "Brand Experience y Logística",
     exp: "",
+    image: img3,
     desc: (
       <ul className="list-disc pl-4 space-y-1">
         <li>Coordinación de la zona de despegue y pasajeros</li>
@@ -53,6 +65,7 @@ const team = [
     name: "Gabriela Bedoya",
     role: "Operaciones, Logística y Contenido",
     exp: "",
+    image: img4,
     desc: (
       <ul className="list-disc pl-4 space-y-1">
         <li>Coordinación de pasajeros y atención al cliente</li>
@@ -107,32 +120,186 @@ export default function NosotrosMergedPage() {
 
   return (
     <>
-      {/* ============================================================== */}
-      {/* ── SECCIÓN: CONTACTO ── */}
-      {/* ============================================================== */}
-
-      {/* ── Hero Contacto ── */}
+      {/* ── 1. Hero ── */}
       <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-footer-bg to-brand-turquoise-darker/60">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--brand-turquoise)_0%,transparent_60%)] opacity-15" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-white">
-            ¿Listo para Volar?
+            Sobre Nosotros
           </h1>
           <p className="mt-4 max-w-2xl mx-auto text-white/70 leading-relaxed">
-            Completa el formulario o escríbenos directamente por WhatsApp. ¡Estamos listos para
-            hacerte volar!
+            Volamos por pasión. Lo hacemos con experiencia.
           </p>
         </div>
       </section>
 
-      {/* ── Contact Section ── */}
+      {/* ── 2. Quiénes Somos ── */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 md:grid-cols-2 items-center">
+            {/* Texto alineado a la izquierda */}
+            <div className="text-left">
+              <h2 className="text-3xl font-bold text-foreground mb-6">¿Quiénes somos?</h2>
+              <div className="space-y-4 text-foreground/70 leading-relaxed text-lg">
+                <p>
+                  En <strong>Parapente Quito Ecuador (PQE)</strong>, somos pioneros y apasionados por el vuelo libre en los Andes. Durante más de dos décadas, hemos transformado el sueño de volar en una experiencia segura, accesible y verdaderamente inolvidable.
+                </p>
+                <p>
+                  Nos enorgullece ser un referente de turismo de aventura en el país, combinando nuestra profunda experiencia técnica con un enfoque inquebrantable en la seguridad y la atención al detalle. Cada vuelo que realizamos es testimonio de nuestra trayectoria y del amor que sentimos por el cielo ecuatoriano.
+                </p>
+              </div>
+            </div>
+            
+            {/* Imagen a la derecha */}
+            <div className="relative aspect-square sm:aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/5">
+              <Image
+                src={img8}
+                alt="Parapente Quito Ecuador"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 3. Nuestro Equipo ── */}
+      <section className="py-20 bg-background-secondary">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-foreground">Nuestro Equipo</h2>
+            <p className="mt-4 text-foreground/70 max-w-2xl mx-auto">
+              Contamos con profesionales altamente capacitados que garantizan que tu experiencia sea segura, cómoda y excepcional de principio a fin.
+            </p>
+          </div>
+
+          {/* Pilotos (Mayor relevancia) */}
+          <div className="grid gap-8 md:grid-cols-2 mb-8">
+            {teamPilots.map((member) => (
+              <div
+                key={member.name}
+                className="flex flex-col sm:flex-row gap-6 rounded-2xl bg-white p-8 shadow-md ring-1 ring-black/5 transition hover:shadow-xl hover:-translate-y-1"
+              >
+                <div className="relative flex h-32 w-24 sm:h-40 sm:w-32 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-turquoise-dark to-brand-turquoise text-3xl font-bold text-white mb-4 sm:mb-0 overflow-hidden shadow-sm ring-1 ring-black/5">
+                  <Image src={member.image} alt={member.name} fill className="object-cover" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-foreground">{member.name}</h3>
+                  <p className="text-base font-medium text-brand-turquoise">{member.role}</p>
+                  <p className="mt-1 text-sm text-brand-green font-semibold">{member.exp}</p>
+                  <div className="mt-4 text-sm text-foreground/70 leading-relaxed">
+                    {member.desc}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Experiencia y Logística */}
+          <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+            {teamStaff.map((member) => (
+              <div
+                key={member.name}
+                className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 transition hover:shadow-xl hover:-translate-y-1"
+              >
+                <div className="relative flex h-28 w-20 sm:h-32 sm:w-24 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand-turquoise-dark to-brand-turquoise text-xl font-bold text-white overflow-hidden shadow-sm ring-1 ring-black/5">
+                  <Image src={member.image} alt={member.name} fill className="object-cover" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-foreground">{member.name}</h3>
+                  <p className="text-sm font-medium text-brand-turquoise">{member.role}</p>
+                  <div className="mt-3 text-sm text-foreground/60 leading-relaxed">
+                    {member.desc}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. Seguridad ── */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground">Protocolos de Seguridad</h2>
+            <p className="mt-4 text-foreground/70 max-w-2xl mx-auto">
+              Tu seguridad es nuestra prioridad. Mantenemos los más altos estándares en cada vuelo.
+            </p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {safety.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 text-center transition hover:shadow-xl hover:-translate-y-1"
+              >
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-brand-turquoise/10 text-brand-turquoise mb-4">
+                  <SafetyIcon name={item.icon} />
+                </div>
+                <h3 className="text-sm font-bold text-foreground">{item.title}</h3>
+                <p className="mt-2 text-xs text-foreground/60 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. Nuestra Filosofía (Misión y Visión) ── */}
+      <section className="py-20 bg-brand-turquoise/5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground">Nuestra Filosofía</h2>
+          </div>
+          <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+            <div className="text-center sm:text-left">
+              <h3 className="text-xl font-bold text-brand-turquoise mb-3">Misión</h3>
+              <p className="text-foreground/70 leading-relaxed">
+                Brindar experiencias de vuelo libre seguras, inolvidables y personalizadas, conectando a las personas con la libertad del cielo andino mediante los más altos estándares profesionales.
+              </p>
+            </div>
+            <div className="text-center sm:text-left">
+              <h3 className="text-xl font-bold text-brand-turquoise mb-3">Visión</h3>
+              <p className="text-foreground/70 leading-relaxed">
+                Ser el referente líder de turismo de aventura y vuelos en parapente en el Ecuador, reconocidos por nuestra excelencia en seguridad, innovación en paquetes experienciales y pasión por el vuelo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. Bloque visual de transición ── */}
+      <section className="relative py-28 sm:py-40 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={img18}
+            alt="Vive la libertad"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40" />
+        </div>
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-wide">
+            Vive la libertad. Siente el cielo.
+          </h2>
+        </div>
+      </section>
+
+      {/* ── 7. Contacto ── */}
+      <section className="py-20 bg-background-secondary" id="contacto">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-foreground">¿Listo para volar?</h2>
+            <p className="mt-4 text-foreground/70 max-w-2xl mx-auto">
+              Completa el formulario o escríbenos directamente por WhatsApp. ¡Estamos listos para hacerte volar!
+            </p>
+          </div>
           <div className="grid gap-12 lg:grid-cols-5">
             {/* Form */}
             <div className="lg:col-span-3">
               <div className="rounded-2xl bg-white p-8 shadow-md ring-1 ring-black/5">
-                <h2 className="text-2xl font-bold text-foreground">Formulario de Contacto</h2>
+                <h3 className="text-2xl font-bold text-foreground">Formulario de Contacto</h3>
                 <p className="mt-2 text-sm text-foreground/60">
                   Llena tus datos y te redirigiremos a WhatsApp con tu mensaje listo.
                 </p>
@@ -144,7 +311,7 @@ export default function NosotrosMergedPage() {
                         <polyline points="20,6 9,17 4,12" />
                       </svg>
                     </div>
-                    <h3 className="text-lg font-bold text-foreground">¡Mensaje enviado!</h3>
+                    <h4 className="text-lg font-bold text-foreground">¡Mensaje enviado!</h4>
                     <p className="mt-2 text-sm text-foreground/60">
                       Te hemos redirigido a WhatsApp. Si la ventana no se abrió,{" "}
                       <a href="https://wa.me/593998003003" target="_blank" rel="noopener noreferrer" className="text-brand-turquoise font-medium hover:underline">
@@ -361,123 +528,6 @@ export default function NosotrosMergedPage() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================== */}
-      {/* ── SECCIÓN: NOSOTROS ── */}
-      {/* ============================================================== */}
-
-      {/* ── Hero Nosotros ── */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-footer-bg to-brand-turquoise-darker/60">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--brand-turquoise)_0%,transparent_60%)] opacity-20" />
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold text-white">Sobre Nosotros</h1>
-          <p className="mt-4 max-w-2xl mx-auto text-white/70 leading-relaxed">
-            Somos un equipo apasionado por el vuelo libre, comprometidos con brindarte la mejor
-            experiencia de parapente en Ecuador.
-          </p>
-        </div>
-      </section>
-
-      {/* ── Misión y Visión ── */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 md:grid-cols-2">
-            {/* Misión */}
-            <div className="rounded-2xl bg-white p-8 shadow-md ring-1 ring-black/5">
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-turquoise/10 text-brand-turquoise mb-5">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <circle cx="12" cy="12" r="6" />
-                  <circle cx="12" cy="12" r="2" />
-                </svg>
-              </div>
-              <h2 className="text-2xl font-bold text-foreground">Nuestra Misión</h2>
-              <p className="mt-4 text-foreground/70 leading-relaxed">
-                Brindar experiencias de vuelo libre seguras, inolvidables y personalizadas,
-                conectando a las personas con la libertad del cielo andino mediante los más
-                altos estándares profesionales.
-              </p>
-            </div>
-            {/* Visión */}
-            <div className="rounded-2xl bg-white p-8 shadow-md ring-1 ring-black/5">
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-turquoise/10 text-brand-turquoise mb-5">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-              </div>
-              <h2 className="text-2xl font-bold text-foreground">Nuestra Visión</h2>
-              <p className="mt-4 text-foreground/70 leading-relaxed">
-                Ser el referente líder de turismo de aventura y vuelos en parapente en el
-                Ecuador, reconocidos por nuestra excelencia en seguridad, innovación en
-                paquetes experienciales y pasión por el vuelo.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Equipo ── */}
-      <section className="py-20 bg-background-secondary">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
-              Nuestro Equipo
-            </p>
-            <h2 className="mt-2 text-3xl font-bold text-foreground">
-              Pilotos y Profesionales
-            </h2>
-          </div>
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((member) => (
-              <div
-                key={member.name}
-                className="flex flex-col rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 transition hover:shadow-xl hover:-translate-y-1"
-              >
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-turquoise-dark to-brand-turquoise text-2xl font-bold text-white mb-4">
-                  {member.name.charAt(0)}
-                </div>
-                <h3 className="text-lg font-bold text-foreground">{member.name}</h3>
-                <p className="text-sm font-medium text-brand-turquoise">{member.role}</p>
-                {member.exp && (
-                  <p className="mt-1 text-xs text-brand-green font-semibold">{member.exp}</p>
-                )}
-                <div className="mt-3 text-sm text-foreground/60 leading-relaxed flex-1">
-                  {member.desc}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Seguridad ── */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
-              Tu seguridad es nuestra prioridad
-            </p>
-            <h2 className="mt-2 text-3xl font-bold text-foreground">
-              Protocolos de Seguridad
-            </h2>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {safety.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-2xl bg-white p-6 shadow-md ring-1 ring-black/5 text-center"
-              >
-                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-brand-turquoise/10 text-brand-turquoise mb-4">
-                  <SafetyIcon name={item.icon} />
-                </div>
-                <h3 className="text-sm font-bold text-foreground">{item.title}</h3>
-                <p className="mt-2 text-xs text-foreground/60 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
