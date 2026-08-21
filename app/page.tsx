@@ -3,7 +3,6 @@ import Link from "next/link";
 import { fetchGoogleReviews } from "@/lib/google-reviews";
 import GoogleReviewsSection, { GoogleReviewsFallback } from "@/components/GoogleReviews";
 import HeroBackgroundCarousel from "@/components/HeroBackgroundCarousel";
-import CafeteriaCarousel from "@/components/CafeteriaCarousel";
 
 /* ─────────────────────── DATA ─────────────────────── */
 
@@ -76,49 +75,6 @@ const galleryImages = [
   "/images/gallery/img15.jpg",
   "/images/gallery/img9.jpg",
   "/images/gallery/img12.jpg",
-];
-
-const instalaciones = [
-  {
-    image: "/images/instalaciones/inst-0.png",
-    title: "Spots para eventos",
-  },
-  {
-    image: "/images/instalaciones/inst-5.jpg",
-    title: "Área de Espera y Descanso",
-  },
-  {
-    image: "/images/instalaciones/inst-6.jpg",
-    title: "Alas de Neón",
-  },
-  {
-    image: "/images/instalaciones/inst-8.jpg",
-    title: "Letras de Amor",
-  },
-  {
-    image: "/images/instalaciones/inst-10.jpg",
-    title: "Columpios con Vista a Quito",
-  },
-  {
-    image: "/images/instalaciones/inst-2.jpg",
-    title: "Columpio infinito",
-  },
-  {
-    image: "/images/instalaciones/inst-13.jpg",
-    title: "Triciclo al cielo",
-  },
-  {
-    image: "/images/instalaciones/inst-7.jpg",
-    title: "Picnic Romántico",
-  },
-  {
-    image: "/images/instalaciones/inst-9.jpg",
-    title: "Amanecer en Columpios",
-  },
-  {
-    image: "/images/instalaciones/inst-11.jpg",
-    title: "Vista Panorámica",
-  },
 ];
 
 /* ─────────────────────── PAGE ─────────────────────── */
@@ -403,91 +359,63 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* ── INSTALACIONES ── */}
-      <section className="py-20 bg-white">
+      {/* ── INSTALACIONES PREVIEW ── */}
+      <section className="py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              Instalaciones privadas
-            </h2>
-            <p className="mt-3 text-foreground/60 max-w-2xl mx-auto">
-              Ven a vivir mucho más que un vuelo y disfruta de nuestra cafetería, spots privados y miradores con las mejores vistas de la ciudad, ideales para relajarte, compartir y disfrutar de un plan perfecto.
-            </p>
-          </div>
-
-          {/* ── BLOQUE DESTACADO CAFETERÍA ── */}
-          <div className="mb-16">
-            <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-              
-              {/* Carrusel (55-60% width) */}
-              <div className="w-full lg:w-[55%]">
-                <CafeteriaCarousel />
+          
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            
+            {/* Imágenes (Izquierda) */}
+            <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
+              <div className="col-span-2 relative h-64 sm:h-80 overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5">
+                <Image src="/images/instalaciones/inst-1.jpg" alt="Cafetería PQE" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
               </div>
-
-              {/* Información (40-45% width) */}
-              <div className="w-full lg:w-[45%] flex flex-col">
-                <p className="text-lg sm:text-xl font-bold tracking-wide text-brand-turquoise uppercase mb-3">
-                  CAFETERÍA PQE
-                </p>
-                <h3 className="text-2xl sm:text-3xl font-bold text-foreground leading-tight">
-                  El cielo también se disfruta desde tierra
-                </h3>
-                
-                <div className="mt-6 space-y-4 text-foreground/70 leading-relaxed text-base sm:text-lg">
-                  <p>
-                    ¿Todavía no te animas a volar? Ven a conocer nuestra cafetería, disfruta del ambiente de PQE y contempla de cerca la experiencia del parapente mientras observas los vuelos.
-                  </p>
-                  <p>
-                    Ya sea que vengas a acompañar a alguien, a relajarte o simplemente a descubrir este mundo desde tierra, siempre hay una buena razón para visitarnos. Y quién sabe… quizá el próximo vuelo sea el tuyo.
-                  </p>
-                </div>
-
-                <div className="mt-8">
-                  <a
-                    href="https://www.google.com/maps/place/Parapente+Quito+Ecuador/@-0.2192882,-78.5247212,22867m/data=!3m1!1e3!4m6!3m5!1s0x91d5bd884479c16d:0x6313317c10c84dca!8m2!3d-0.2172447!4d-78.4714489!16s%2Fg%2F11h0y9ft1q?entry=ttu&g_ep=EgoyMDI2MDgwNC4wIKXMDSoASAFQAw%3D%3D"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl border border-foreground/20 px-6 py-3.5 text-sm font-semibold text-foreground transition hover:bg-foreground hover:text-white"
-                  >
-                    Cómo llegar
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12h14" />
-                      <path d="M12 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                </div>
+              <div className="relative h-40 sm:h-48 overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5">
+                <Image src="/images/instalaciones/inst-5.jpg" alt="Áreas de descanso" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
               </div>
-
+              <div className="relative h-40 sm:h-48 overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5">
+                <Image src="/images/instalaciones/inst-11.jpg" alt="Miradores" fill className="object-cover" sizes="(max-width: 1024px) 50vw, 25vw" />
+              </div>
             </div>
-          </div>
 
-          <div className="flex flex-wrap justify-center gap-6">
-            {instalaciones.map((inst, i) => {
-              const isPortrait = i >= 5;
-              return (
-                <div
-                  key={i}
-                  className={`group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5 transition hover:shadow-xl hover:-translate-y-1 ${
-                    isPortrait 
-                      ? "w-[calc(50%-12px)] sm:w-[calc(33.333%-16px)] lg:w-[calc(20%-19.2px)]" 
-                      : "w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
-                  }`}
-                >
-                  <div className={`relative overflow-hidden bg-slate-100 flex items-center justify-center ${isPortrait ? "h-64 sm:h-80" : "h-56 sm:h-64"}`}>
-                    <Image
-                      src={inst.image}
-                      alt={inst.title}
-                      fill
-                      className="object-contain transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width:640px)100vw, (max-width:1024px)50vw, 33vw"
-                    />
-                  </div>
-                  <div className="flex flex-1 flex-col p-4 text-center justify-center border-t border-black/5 bg-slate-50/50">
-                    <h3 className="text-xs sm:text-sm font-bold tracking-widest text-brand-blue uppercase">{inst.title}</h3>
-                  </div>
+            {/* Contenido (Derecha) */}
+            <div className="w-full lg:w-1/2 flex flex-col">
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
+                Mucho más que un lugar para despegar
+              </h2>
+              <p className="mt-5 text-lg text-foreground/70 leading-relaxed">
+                Disfruta de espacios privados pensados para pasajeros y acompañantes antes y después del vuelo.
+              </p>
+
+              <div className="mt-10 space-y-8">
+                <div>
+                  <h3 className="text-lg font-bold text-foreground">Cafetería</h3>
+                  <p className="mt-1.5 text-foreground/70 leading-relaxed">Un espacio para relajarte y disfrutar antes o después del vuelo.</p>
                 </div>
-              );
-            })}
+                <div>
+                  <h3 className="text-lg font-bold text-foreground">Áreas de descanso</h3>
+                  <p className="mt-1.5 text-foreground/70 leading-relaxed">Espacios cómodos para pasajeros y acompañantes.</p>
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-foreground">Spots y miradores</h3>
+                  <p className="mt-1.5 text-foreground/70 leading-relaxed">Lugares pensados para disfrutar, compartir y capturar momentos especiales.</p>
+                </div>
+              </div>
+
+              <div className="mt-12">
+                <Link
+                  href="/servicios#instalaciones"
+                  className="inline-flex items-center gap-2 rounded-xl border border-foreground/20 px-7 py-3.5 text-sm font-bold text-foreground transition hover:bg-foreground hover:text-white"
+                >
+                  Conoce nuestras instalaciones
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14" />
+                    <path d="M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

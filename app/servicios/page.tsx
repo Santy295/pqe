@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Paquetes y Servicios | PQE Vuelos en Parapente",
-  description: "Paquetes y experiencias especiales para hacer de tu vuelo un recuerdo inolvidable.",
+  title: "Servicios e Instalaciones | PQE Vuelos en Parapente",
+  description: "Descubre experiencias, espacios y servicios diseñados para disfrutar PQE antes, durante y después de tu vuelo.",
 };
 
 const packages = [
@@ -118,6 +118,14 @@ const packages = [
   },
 ];
 
+const spots = [
+  { name: "Alas de Neón", image: "/images/instalaciones/inst-6.jpg", desc: "Un spot vibrante para capturar la esencia de tu vuelo." },
+  { name: "Letras de Amor", image: "/images/instalaciones/inst-8.jpg", desc: "El escenario perfecto para fotos especiales." },
+  { name: "Columpios con Vista a Quito", image: "/images/instalaciones/inst-10.jpg", desc: "Siente la libertad mientras contemplas la ciudad." },
+  { name: "Triciclo al cielo", image: "/images/instalaciones/inst-13.jpg", desc: "Una fotografía divertida y original antes de volar." },
+  { name: "Áreas de Picnic", image: "/images/instalaciones/inst-7.jpg", desc: "Espacios tranquilos diseñados para compartir al aire libre." },
+];
+
 const commonBenefits = [
   {
     title: "CERTIFICADO DE VUELO",
@@ -152,26 +160,47 @@ export default function ServiciosPage() {
       <section className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-footer-bg to-brand-turquoise-darker/60">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--brand-turquoise)_0%,transparent_60%)] opacity-15" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold tracking-wide text-brand-turquoise uppercase">
-            PAQUETES ESPECIALES
-          </p>
-          <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-white max-w-4xl mx-auto leading-tight">
-            Haz que tu vuelo se convierta en un recuerdo inolvidable
+          <h1 className="text-4xl sm:text-5xl font-bold text-white max-w-4xl mx-auto leading-tight">
+            Mucho más que volar
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-white/70 leading-relaxed text-lg">
-            Celebra el amor, un cumpleaños o una aventura con amigos desde una perspectiva diferente. Elige el paquete que mejor se adapte a tu momento y nosotros nos encargamos de hacer que la experiencia sea inolvidable.
+            Descubre experiencias, espacios y servicios diseñados para disfrutar PQE antes, durante y después de tu vuelo.
           </p>
         </div>
       </section>
 
-      {/* ── 2. Tarjetas de Paquetes ── */}
-      <section className="py-20 bg-background-secondary">
+      {/* ── 2. Navegación Interna ── */}
+      <div className="sticky top-[72px] sm:top-[88px] z-40 bg-white/80 backdrop-blur-md border-b border-black/5">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <nav className="flex justify-center gap-6 sm:gap-10 overflow-x-auto py-4 text-sm font-bold tracking-wide text-foreground/80 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <a href="#paquetes" className="hover:text-brand-turquoise transition-colors whitespace-nowrap">Paquetes</a>
+            <span className="text-foreground/20">·</span>
+            <a href="#instalaciones" className="hover:text-brand-turquoise transition-colors whitespace-nowrap">Instalaciones</a>
+            <span className="text-foreground/20">·</span>
+            <a href="#spots" className="hover:text-brand-turquoise transition-colors whitespace-nowrap">Spots</a>
+            <span className="text-foreground/20">·</span>
+            <a href="#camping" className="hover:text-brand-turquoise transition-colors whitespace-nowrap">Camping</a>
+          </nav>
+        </div>
+      </div>
+
+      {/* ── 3. Paquetes y Experiencias ── */}
+      <section id="paquetes" className="scroll-mt-[150px] py-24 bg-background-secondary">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           
-          <div className="mb-12 sm:mb-16 text-center">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground">
-              ¿Y cuál es tu plan perfecto?
+          <div className="mb-20 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground">
+              Paquetes y Experiencias
             </h2>
+            <p className="mt-6 text-lg text-foreground/70 leading-relaxed">
+              Combina el vuelo con experiencias especiales diseñadas para celebrar y compartir momentos inolvidables.
+            </p>
+          </div>
+
+          <div className="mb-12 sm:mb-16 text-center">
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
+              ¿Y cuál es tu plan perfecto?
+            </h3>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -226,9 +255,9 @@ export default function ServiciosPage() {
 
                   {/* Detalle especial del paquete */}
                   <div className="mt-8 rounded-2xl bg-slate-50 p-6 ring-1 ring-black/5">
-                    <h3 className="text-xs font-bold text-brand-turquoise uppercase tracking-wider mb-4 pb-3 border-b border-black/5">
+                    <h4 className="text-xs font-bold text-brand-turquoise uppercase tracking-wider mb-4 pb-3 border-b border-black/5">
                       {pkg.detailsTitle}
-                    </h3>
+                    </h4>
                     {pkg.details}
                   </div>
 
@@ -256,8 +285,145 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      {/* ── 3. Beneficios Comunes ── */}
-      <section className="py-24 bg-white">
+      {/* ── 4. Instalaciones ── */}
+      <section id="instalaciones" className="scroll-mt-[150px] py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground">
+              Instalaciones
+            </h2>
+            <p className="mt-6 text-lg text-foreground/70 leading-relaxed">
+              Descubre los espacios que hemos preparado para hacer de tu visita una experiencia cómoda y completa.
+            </p>
+          </div>
+
+          {/* Cafeteria Hero Block */}
+          <div className="mb-20 rounded-[2rem] overflow-hidden bg-slate-50 ring-1 ring-black/5 flex flex-col lg:flex-row shadow-sm">
+            <div className="relative w-full lg:w-[55%] h-72 lg:h-auto min-h-[300px]">
+              <Image src="/images/instalaciones/inst-1.jpg" alt="Cafetería PQE" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 55vw" />
+            </div>
+            <div className="w-full lg:w-[45%] p-8 sm:p-12 flex flex-col justify-center">
+              <p className="text-xs font-bold tracking-widest text-brand-turquoise uppercase mb-3">Principal</p>
+              <h3 className="text-3xl font-bold text-foreground mb-4">Cafetería</h3>
+              <p className="text-foreground/70 leading-relaxed text-lg">
+                Un espacio pensado para disfrutar antes y después del vuelo, donde pasajeros y acompañantes pueden descansar, compartir y disfrutar del entorno.
+              </p>
+            </div>
+          </div>
+
+          {/* Other Facilities Grid */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+             {[
+               { title: "Área de Recepción", img: "/images/instalaciones/inst-0.png", desc: "El punto de encuentro donde te damos la bienvenida." },
+               { title: "Área de Espera", img: "/images/instalaciones/inst-5.jpg", desc: "Zonas de descanso antes y después de tu aventura." },
+               { title: "Miradores", img: "/images/instalaciones/inst-11.jpg", desc: "Espacios con vistas espectaculares del valle y la ciudad." }
+             ].map(fac => (
+                <div key={fac.title} className="flex flex-col bg-white rounded-2xl shadow-sm ring-1 ring-black/5 overflow-hidden transition-all hover:shadow-md hover:-translate-y-1">
+                  <div className="relative h-56 w-full"><Image src={fac.img} alt={fac.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" /></div>
+                  <div className="p-6">
+                    <h4 className="text-lg font-bold text-foreground mb-2">{fac.title}</h4>
+                    <p className="text-sm text-foreground/70">{fac.desc}</p>
+                  </div>
+                </div>
+             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 5. Spots ── */}
+      <section id="spots" className="scroll-mt-[150px] py-24 bg-background-secondary">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground">
+              Spots
+            </h2>
+            <p className="mt-6 text-lg text-foreground/70 leading-relaxed">
+              Descubre rincones visuales únicos dentro de nuestras instalaciones, ideales para capturar recuerdos increíbles.
+            </p>
+          </div>
+
+          <div className="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+             {spots.map(s => (
+                <div key={s.name} className="group relative flex flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 transition hover:shadow-md hover:-translate-y-1">
+                   <div className="relative h-48 sm:h-56 w-full overflow-hidden">
+                     <Image src={s.image} alt={s.name} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 640px) 50vw, 25vw" />
+                   </div>
+                   <div className="flex flex-col p-4 flex-1">
+                      <h4 className="text-sm font-bold text-foreground mb-1.5">{s.name}</h4>
+                      <p className="text-xs text-foreground/60 leading-relaxed">{s.desc}</p>
+                   </div>
+                </div>
+             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 6. Zonas de Camping ── */}
+      <section id="camping" className="scroll-mt-[150px] py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 text-center max-w-3xl mx-auto">
+            <h2 className="text-4xl sm:text-5xl font-bold text-foreground">
+              Zonas de Camping
+            </h2>
+            <p className="mt-6 text-lg text-foreground/70 leading-relaxed">
+              Acampa bajo las estrellas y despierta en plena naturaleza. Ofrecemos dos ubicaciones para vivir una noche diferente.
+            </p>
+          </div>
+
+          <div className="grid gap-12 lg:grid-cols-2">
+            {/* Zona Despegue */}
+            <div className="flex flex-col bg-white rounded-[2rem] shadow-sm ring-1 ring-black/5 overflow-hidden transition hover:shadow-md">
+              <div className="relative h-64 w-full"><Image src="/images/gallery/img9.jpg" alt="Camping en zona de despegue" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" /></div>
+              <div className="p-8 sm:p-10 flex flex-col flex-1">
+                <h3 className="text-2xl font-bold text-foreground mb-3">Camping en zona de despegue</h3>
+                <p className="text-foreground/70 leading-relaxed mb-8">
+                  Una ubicación privilegiada en lo alto del cerro para disfrutar de atardeceres y amaneceres únicos con vista a toda la ciudad y al horizonte.
+                </p>
+                <div className="space-y-4 mt-auto">
+                   <div className="p-5 bg-slate-50 rounded-xl ring-1 ring-black/5">
+                      <p className="text-sm font-bold text-foreground mb-1.5">Servicios disponibles</p>
+                      <p className="text-xs text-foreground/70">Zonas niveladas, acceso a baños y área de fogata.</p>
+                   </div>
+                   <div className="p-5 bg-slate-50 rounded-xl ring-1 ring-black/5">
+                      <p className="text-sm font-bold text-foreground mb-1.5">Condiciones de uso</p>
+                      <p className="text-xs text-foreground/70">Requiere reservación previa y acatar normas de conservación ambiental.</p>
+                   </div>
+                   <div className="mt-6 pt-4 border-t border-black/5 text-center">
+                      <p className="text-xs font-bold text-brand-turquoise tracking-wide">RESERVAS Y COORDINACIÓN VÍA WHATSAPP</p>
+                   </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Zona Aterrizaje */}
+            <div className="flex flex-col bg-white rounded-[2rem] shadow-sm ring-1 ring-black/5 overflow-hidden transition hover:shadow-md">
+              <div className="relative h-64 w-full"><Image src="/images/gallery/img13.jpg" alt="Camping en zona de aterrizaje" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" /></div>
+              <div className="p-8 sm:p-10 flex flex-col flex-1">
+                <h3 className="text-2xl font-bold text-foreground mb-3">Camping en zona de aterrizaje</h3>
+                <p className="text-foreground/70 leading-relaxed mb-8">
+                  Un entorno rodeado de naturaleza y tranquilidad en el valle, ideal para familias y para quienes prefieren un clima ligeramente más cálido.
+                </p>
+                <div className="space-y-4 mt-auto">
+                   <div className="p-5 bg-slate-50 rounded-xl ring-1 ring-black/5">
+                      <p className="text-sm font-bold text-foreground mb-1.5">Servicios disponibles</p>
+                      <p className="text-xs text-foreground/70">Terreno amplio, acceso a baños y seguridad perimetral.</p>
+                   </div>
+                   <div className="p-5 bg-slate-50 rounded-xl ring-1 ring-black/5">
+                      <p className="text-sm font-bold text-foreground mb-1.5">Condiciones de uso</p>
+                      <p className="text-xs text-foreground/70">Disponibilidad sujeta a aforo. Prohibido el ingreso de mascotas no controladas.</p>
+                   </div>
+                   <div className="mt-6 pt-4 border-t border-black/5 text-center">
+                      <p className="text-xs font-bold text-brand-turquoise tracking-wide">RESERVAS Y COORDINACIÓN VÍA WHATSAPP</p>
+                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. Beneficios Comunes ── */}
+      <section className="py-24 bg-background-secondary border-t border-black/5">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-16 max-w-3xl">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight">
@@ -280,6 +446,27 @@ export default function ServiciosPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── 8. Llamado a la acción final ── */}
+      <section className="relative overflow-hidden bg-footer-bg py-24">
+        <div className="absolute inset-0 bg-gradient-to-t from-footer-bg via-footer-bg/80 to-brand-turquoise-darker/50" />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+            ¿Listo para vivir la experiencia PQE?
+          </h2>
+          <a
+            href="https://wa.me/593998003003"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 rounded-xl bg-brand-green px-8 py-4 text-sm font-semibold text-white shadow-lg shadow-brand-green/25 transition hover:bg-brand-green-dark"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Reservar por WhatsApp
+          </a>
         </div>
       </section>
     </>
